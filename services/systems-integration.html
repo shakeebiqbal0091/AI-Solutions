@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Systems Integration — AI Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:#2eb87e; --green-dark:#239c69; --green-light:#eaf8f1;
+      --ink:#111518; --dark:#1a2025; --body:#4a5568; --muted:#8a9ab0;
+      --border:#e8edf3; --bg:#ffffff; --bg2:#f8fafc; --bg3:#f1f5f9;
+      --serif:'DM Serif Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+      --radius:14px; --shadow:0 4px 24px rgba(0,0,0,0.07); --shadow-lg:0 12px 48px rgba(0,0,0,0.11);
+    }
+    html { scroll-behavior: smooth; }
+    body { background:var(--bg); color:var(--body); font-family:var(--sans); font-size:15px; line-height:1.65; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    a { text-decoration:none; color:inherit; }
+    .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .tag { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); background:var(--green-light); border-radius:100px; padding:0.3rem 0.9rem; margin-bottom:1rem; }
+    .tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); }
+    h1 { font-family:var(--serif); font-size:clamp(2.4rem,5vw,4rem); font-weight:400; color:var(--ink); line-height:1.1; letter-spacing:-0.025em; margin-bottom:1.2rem; }
+    h1 em { font-style:italic; color:var(--green); }
+    h2 { font-family:var(--serif); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:400; color:var(--ink); line-height:1.15; letter-spacing:-0.02em; margin-bottom:1rem; }
+    h2 em { font-style:italic; color:var(--green); }
+    p { color:var(--body); line-height:1.8; }
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.82rem 1.8rem; border-radius:100px; font-family:var(--sans); font-size:0.87rem; font-weight:600; cursor:pointer; border:none; transition:all 0.2s; }
+    .btn-green { background:var(--green); color:#fff; }
+    .btn-green:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(46,184,126,0.3); }
+    .btn-outline { background:transparent; color:var(--ink); border:2px solid var(--border); }
+    .btn-outline:hover { border-color:var(--green); color:var(--green); }
+    nav { position:fixed; top:0; left:0; right:0; z-index:300; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); height:70px; }
+    .nav-inner { max-width:1200px; margin:0 auto; height:100%; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; }
+    .nav-logo { font-family:var(--serif); font-size:1.5rem; color:var(--ink); font-weight:400; letter-spacing:-0.02em; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; align-items:center; gap:0.2rem; list-style:none; }
+    .nav-links a { font-size:0.85rem; font-weight:500; color:var(--body); padding:0.45rem 0.9rem; border-radius:8px; transition:color 0.15s,background 0.15s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--green); }
+    @media(max-width:860px){ .nav-links{display:none;} }
+    section { padding:5.5rem 0; }
+    .alt-bg { background:var(--bg2); }
+    .svc-hero { padding:9rem 0 5rem; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .hero-sub { font-size:1.05rem; color:var(--muted); max-width:580px; line-height:1.8; margin-bottom:2.5rem; }
+    .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .hero-stats { display:flex; gap:2.5rem; padding-top:2rem; border-top:1px solid rgba(0,0,0,0.08); flex-wrap:wrap; }
+    .hs-num { font-family:var(--serif); font-size:2rem; color:var(--ink); line-height:1; margin-bottom:0.2rem; }
+    .hs-num span { color:var(--green); }
+    .hs-label { font-size:0.75rem; color:var(--muted); }
+    .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .feat-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:2rem; transition:transform 0.2s,box-shadow 0.2s; }
+    .feat-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    .feat-icon { width:52px; height:52px; border-radius:14px; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.2rem; }
+    .feat-card h3 { font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem; font-family:var(--sans); }
+    .feat-card p { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+    .cases-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+    .case-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; display:flex; gap:1rem; align-items:flex-start; }
+    .case-icon { font-size:1.8rem; flex-shrink:0; }
+    .case-card h4 { font-size:0.92rem; font-weight:700; color:var(--ink); margin-bottom:0.3rem; }
+    .case-card p { font-size:0.83rem; color:var(--muted); line-height:1.65; }
+    .case-result { display:inline-flex; align-items:center; gap:0.3rem; margin-top:0.6rem; font-size:0.75rem; font-weight:700; color:var(--green); background:var(--green-light); padding:0.22rem 0.7rem; border-radius:100px; }
+    .process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+    .proc-num { width:56px; height:56px; border-radius:50%; background:var(--green); color:#fff; font-family:var(--serif); font-size:1.3rem; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+    .proc-step { text-align:center; }
+    .proc-step h4 { font-size:0.92rem; font-weight:700; color:var(--ink); margin-bottom:0.4rem; }
+    .proc-step p { font-size:0.8rem; color:var(--muted); line-height:1.65; }
+    .price-banner { background:var(--ink); border-radius:20px; padding:3.5rem; display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center; }
+    .pb-price { font-family:var(--serif); font-size:3.5rem; color:#fff; line-height:1; margin-bottom:0.5rem; }
+    .pb-price span { font-size:1.2rem; color:var(--green); }
+    .pb-desc { font-size:0.88rem; color:rgba(255,255,255,0.5); max-width:480px; line-height:1.75; }
+    .pb-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:0.5rem; }
+    .pb-actions { display:flex; flex-direction:column; gap:0.8rem; align-items:center; }
+    .faq-list { display:flex; flex-direction:column; gap:1rem; max-width:800px; }
+    .faq-item { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .faq-q { padding:1.3rem 1.5rem; font-weight:600; color:var(--ink); font-size:0.92rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:var(--bg); user-select:none; }
+    .faq-q:hover { background:var(--bg2); }
+    .faq-q::after { content:'↓'; color:var(--green); transition:transform 0.2s; }
+    .faq-item.open .faq-q::after { transform:rotate(180deg); }
+    .faq-a { padding:0 1.5rem; max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s; }
+    .faq-item.open .faq-a { max-height:300px; padding:0 1.5rem 1.3rem; }
+    .faq-a p { font-size:0.88rem; color:var(--muted); line-height:1.75; }
+    .cta-section { padding:5rem 0; text-align:center; }
+    .cta-section h2 { color:#fff; margin-bottom:1rem; }
+    .cta-section p { color:rgba(255,255,255,0.75); max-width:500px; margin:0 auto 2.5rem; font-size:0.97rem; }
+    footer { background:var(--dark); padding:2.5rem 0; }
+    .footer-bottom-bar { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.25); }
+    .footer-logo-sm { font-family:var(--serif); font-size:1.2rem; color:#fff; }
+    .footer-logo-sm span { color:var(--green); }
+    .back-btn { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.4); transition:color 0.15s; }
+    .back-btn:hover { color:var(--green); }
+    @media(max-width:900px){ .features-grid{grid-template-columns:1fr 1fr;} .cases-grid{grid-template-columns:1fr;} .process-steps{grid-template-columns:1fr 1fr;} .price-banner{grid-template-columns:1fr;} .pb-actions{flex-direction:row;align-items:flex-start;} }
+    @media(max-width:600px){ .features-grid,.process-steps{grid-template-columns:1fr;} }
+.svc-hero{background:linear-gradient(135deg,#ede9fe 0%,#f5f3ff 60%,#f8fafc 100%);}</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">AI <span>Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services" class="active">Services</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#pricing">Pricing</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="btn btn-green">Book a Free Audit</a>
+  </div>
+</nav>
+
+<div class="svc-hero">
+  <div class="container">
+    <div class="tag">Systems Integration</div>
+    <h1>Connect Everything.<br><em>Automate</em> the Gaps<br>Between Your Tools.</h1>
+    <p class="hero-sub">Your CRM, ERP, helpdesk, communication stack, databases, and AI systems — all talking to each other, in real time, without manual data entry or copy-pasting between tabs.</p>
+    <div class="hero-actions">
+      <a href="../index.html#contact" class="btn btn-green">Get a Free Audit →</a>
+      <a href="#integrations" class="btn btn-outline">See Integrations</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">120<span>+</span></div><div class="hs-label">Production integrations shipped</div></div>
+      <div class="hs"><div class="hs-num">0</div><div class="hs-label">Post-launch critical failures</div></div>
+      <div class="hs"><div class="hs-num">100<span>%</span></div><div class="hs-label">Uptime SLA on all integrations</div></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="tag">Why Integration Matters</div>
+    <h2>Data Silos Are Silently <em>Costing You</em></h2>
+    <p style="max-width:700px;margin-bottom:1.2rem;">When your tools don't talk to each other, your team wastes hours manually copying data between systems, important information falls through the cracks, and automation becomes impossible because nothing has access to the full picture.</p>
+    <p style="max-width:700px;margin-bottom:1.2rem;">We connect your entire software stack so data flows automatically where it needs to go — in real time, with error handling, logging, and the ability to trigger automated workflows across any combination of platforms.</p>
+    <a href="../index.html#contact" class="btn btn-green" style="margin-top:1rem;">Get My Stack Connected →</a>
+  </div>
+</section>
+
+<section class="alt-bg" id="integrations">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;"><div class="tag">What We Connect</div><h2>Every Tool in Your <em>Stack</em></h2></div>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon">🤝</div><h3>CRM Integrations</h3><p>Salesforce, HubSpot, Pipedrive, Zoho — bidirectional sync so every touchpoint is automatically recorded, no manual data entry required.</p></div>
+      <div class="feat-card"><div class="feat-icon">💬</div><h3>Communication Tools</h3><p>Slack, Teams, WhatsApp Business, Gmail, Outlook — route messages, trigger alerts, and automate responses across any channel.</p></div>
+      <div class="feat-card"><div class="feat-icon">🛒</div><h3>E-Commerce Platforms</h3><p>Shopify, WooCommerce, Magento — sync orders, inventory, customers, and fulfilment data with your other systems in real time.</p></div>
+      <div class="feat-card"><div class="feat-icon">💳</div><h3>Payment & Finance</h3><p>Stripe, PayPal, QuickBooks, Xero — automate invoice generation, payment tracking, reconciliation, and financial reporting.</p></div>
+      <div class="feat-card"><div class="feat-icon">📋</div><h3>Project & Ops Tools</h3><p>Notion, Airtable, Asana, Monday.com, Jira — keep project data, tasks, and documentation in sync across your entire team.</p></div>
+      <div class="feat-card"><div class="feat-icon">🔌</div><h3>Custom API Builds</h3><p>Have a proprietary system or legacy platform? We build custom API connectors and middleware to integrate anything with an accessible interface.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="margin-bottom:3rem;"><div class="tag">Use Cases</div><h2>Integration Workflows <em>We've Built</em></h2></div>
+    <div class="cases-grid">
+      <div class="case-card"><div class="case-icon">📬</div><div><h4>Lead-to-CRM Pipeline</h4><p>Every form submission, chatbot conversation, or email enquiry automatically creates a CRM contact, assigns a rep, and triggers a follow-up sequence.</p><div class="case-result">↓ 100% manual data entry eliminated</div></div></div>
+      <div class="case-card"><div class="case-icon">🏭</div><div><h4>Order-to-Fulfilment Sync</h4><p>Orders from Shopify automatically update inventory in your ERP, trigger warehouse tasks, and send tracking updates to customers via WhatsApp.</p><div class="case-result">↓ 60% fulfilment errors</div></div></div>
+      <div class="case-card"><div class="case-icon">💼</div><div><h4>Deal-to-Invoice Automation</h4><p>When a deal is marked Closed Won in your CRM, a branded invoice is automatically generated in your accounting tool and emailed to the client.</p><div class="case-result">↑ 3× faster invoice cycle</div></div></div>
+      <div class="case-card"><div class="case-icon">🔔</div><div><h4>Support Ticket Routing</h4><p>Inbound support emails, chats, and WhatsApp messages automatically categorised, prioritised, and routed to the right team member in Slack.</p><div class="case-result">↓ 40% response time</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;"><div class="tag">Process</div><h2>How We Build <em>Integrations</em></h2></div>
+    <div class="process-steps">
+      <div class="proc-step"><div class="proc-num">1</div><h4>Stack Audit</h4><p>We map every tool in your stack, data flows, and identify where manual work exists that automation can eliminate.</p></div>
+      <div class="proc-step"><div class="proc-num">2</div><h4>Architecture Design</h4><p>We design the integration architecture, data schemas, and error handling before writing any code.</p></div>
+      <div class="proc-step"><div class="proc-num">3</div><h4>Build & Test</h4><p>Built with full test coverage, error logging, and rollback capability. We test with production-scale data volumes.</p></div>
+      <div class="proc-step"><div class="proc-num">4</div><h4>Monitor & Maintain</h4><p>We monitor all integrations 24/7, alert you to any failures, and maintain them as your tools and APIs evolve.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="tag">Investment</div>
+    <h2 style="margin-bottom:2rem;">Transparent <em>Pricing</em></h2>
+    <div class="price-banner">
+      <div><div class="pb-label">Starting From</div><div class="pb-price"><span>$</span>2,500</div><p class="pb-desc">Per integration workflow. Complex multi-system integrations scoped individually. All integrations include monitoring, error handling, and maintenance in monthly support.</p></div>
+      <div class="pb-actions"><a href="../index.html#contact" class="btn btn-green">Get a Quote</a><a href="../index.html#pricing" class="btn" style="background:rgba(255,255,255,0.1);color:#fff;">All Plans</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container">
+    <div style="margin-bottom:2.5rem;"><div class="tag">FAQ</div><h2>Common Questions</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can you integrate with legacy or proprietary systems?</div><div class="faq-a"><p>Yes. As long as the system has some form of accessible interface — API, database access, file export, or even screen scraping as a last resort — we can build a connector for it.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What happens when an integration breaks?</div><div class="faq-a"><p>We monitor all integrations 24/7 with automated error detection. When something fails, we receive an alert and begin investigating before you even notice. We also build in automatic retry logic and data recovery for most failure scenarios.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Is my data safe during integration?</div><div class="faq-a"><p>All data transfer uses encrypted, authenticated connections. We never store your data on shared infrastructure, and we use the minimum permissions required for each integration to function.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section" style="background:linear-gradient(135deg,#5b21b6,#7c3aed);">
+  <div class="container">
+    <div class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">Ready to Connect?</div>
+    <h2>Get Your Stack <em>Integrated</em></h2>
+    <p>Book a free stack audit. We'll map your tools, identify data silos, and show you exactly what's possible to automate.</p>
+    <a href="../index.html#contact" class="btn" style="background:#fff;color:#5b21b6;font-weight:700;">Book a Free Stack Audit →</a>
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-bottom-bar">
+    <a href="../index.html" class="footer-logo-sm">AI <span>Solutions</span></a>
+    <div class="footer-copy">© 2026 AI Solutions. All rights reserved.</div>
+    <a href="../index.html" class="back-btn">← Back to Home</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); window.scrollTo({top:t.offsetTop-72,behavior:'smooth'}); }
+  });
+});
+</script>
+
+</body>
+</html>

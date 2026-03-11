@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Reporting Agents — AI Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:#2eb87e; --green-dark:#239c69; --green-light:#eaf8f1;
+      --ink:#111518; --dark:#1a2025; --body:#4a5568; --muted:#8a9ab0;
+      --border:#e8edf3; --bg:#ffffff; --bg2:#f8fafc; --bg3:#f1f5f9;
+      --serif:'DM Serif Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+      --radius:14px; --shadow:0 4px 24px rgba(0,0,0,0.07); --shadow-lg:0 12px 48px rgba(0,0,0,0.11);
+    }
+    html { scroll-behavior: smooth; }
+    body { background:var(--bg); color:var(--body); font-family:var(--sans); font-size:15px; line-height:1.65; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    a { text-decoration:none; color:inherit; }
+    .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .tag { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); background:var(--green-light); border-radius:100px; padding:0.3rem 0.9rem; margin-bottom:1rem; }
+    .tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); }
+    h1 { font-family:var(--serif); font-size:clamp(2.4rem,5vw,4rem); font-weight:400; color:var(--ink); line-height:1.1; letter-spacing:-0.025em; margin-bottom:1.2rem; }
+    h1 em { font-style:italic; color:var(--green); }
+    h2 { font-family:var(--serif); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:400; color:var(--ink); line-height:1.15; letter-spacing:-0.02em; margin-bottom:1rem; }
+    h2 em { font-style:italic; color:var(--green); }
+    p { color:var(--body); line-height:1.8; }
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.82rem 1.8rem; border-radius:100px; font-family:var(--sans); font-size:0.87rem; font-weight:600; cursor:pointer; border:none; transition:all 0.2s; }
+    .btn-green { background:var(--green); color:#fff; }
+    .btn-green:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(46,184,126,0.3); }
+    .btn-outline { background:transparent; color:var(--ink); border:2px solid var(--border); }
+    .btn-outline:hover { border-color:var(--green); color:var(--green); }
+    nav { position:fixed; top:0; left:0; right:0; z-index:300; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); height:70px; }
+    .nav-inner { max-width:1200px; margin:0 auto; height:100%; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; }
+    .nav-logo { font-family:var(--serif); font-size:1.5rem; color:var(--ink); font-weight:400; letter-spacing:-0.02em; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; align-items:center; gap:0.2rem; list-style:none; }
+    .nav-links a { font-size:0.85rem; font-weight:500; color:var(--body); padding:0.45rem 0.9rem; border-radius:8px; transition:color 0.15s,background 0.15s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--green); }
+    @media(max-width:860px){ .nav-links{display:none;} }
+    section { padding:5.5rem 0; }
+    .alt-bg { background:var(--bg2); }
+    .svc-hero { padding:9rem 0 5rem; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .hero-sub { font-size:1.05rem; color:var(--muted); max-width:580px; line-height:1.8; margin-bottom:2.5rem; }
+    .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .hero-stats { display:flex; gap:2.5rem; padding-top:2rem; border-top:1px solid rgba(0,0,0,0.08); flex-wrap:wrap; }
+    .hs-num { font-family:var(--serif); font-size:2rem; color:var(--ink); line-height:1; margin-bottom:0.2rem; }
+    .hs-num span { color:var(--green); }
+    .hs-label { font-size:0.75rem; color:var(--muted); }
+    .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .feat-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:2rem; transition:transform 0.2s,box-shadow 0.2s; }
+    .feat-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    .feat-icon { width:52px; height:52px; border-radius:14px; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.2rem; }
+    .feat-card h3 { font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem; font-family:var(--sans); }
+    .feat-card p { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+    .cases-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+    .case-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; display:flex; gap:1rem; align-items:flex-start; }
+    .case-icon { font-size:1.8rem; flex-shrink:0; }
+    .case-card h4 { font-size:0.92rem; font-weight:700; color:var(--ink); margin-bottom:0.3rem; }
+    .case-card p { font-size:0.83rem; color:var(--muted); line-height:1.65; }
+    .case-result { display:inline-flex; align-items:center; gap:0.3rem; margin-top:0.6rem; font-size:0.75rem; font-weight:700; color:var(--green); background:var(--green-light); padding:0.22rem 0.7rem; border-radius:100px; }
+    .process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+    .proc-num { width:56px; height:56px; border-radius:50%; background:var(--green); color:#fff; font-family:var(--serif); font-size:1.3rem; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+    .proc-step { text-align:center; }
+    .proc-step h4 { font-size:0.92rem; font-weight:700; color:var(--ink); margin-bottom:0.4rem; }
+    .proc-step p { font-size:0.8rem; color:var(--muted); line-height:1.65; }
+    .price-banner { background:var(--ink); border-radius:20px; padding:3.5rem; display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center; }
+    .pb-price { font-family:var(--serif); font-size:3.5rem; color:#fff; line-height:1; margin-bottom:0.5rem; }
+    .pb-price span { font-size:1.2rem; color:var(--green); }
+    .pb-desc { font-size:0.88rem; color:rgba(255,255,255,0.5); max-width:480px; line-height:1.75; }
+    .pb-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:0.5rem; }
+    .pb-actions { display:flex; flex-direction:column; gap:0.8rem; align-items:center; }
+    .faq-list { display:flex; flex-direction:column; gap:1rem; max-width:800px; }
+    .faq-item { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .faq-q { padding:1.3rem 1.5rem; font-weight:600; color:var(--ink); font-size:0.92rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:var(--bg); user-select:none; }
+    .faq-q:hover { background:var(--bg2); }
+    .faq-q::after { content:'↓'; color:var(--green); transition:transform 0.2s; }
+    .faq-item.open .faq-q::after { transform:rotate(180deg); }
+    .faq-a { padding:0 1.5rem; max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s; }
+    .faq-item.open .faq-a { max-height:300px; padding:0 1.5rem 1.3rem; }
+    .faq-a p { font-size:0.88rem; color:var(--muted); line-height:1.75; }
+    .cta-section { padding:5rem 0; text-align:center; }
+    .cta-section h2 { color:#fff; margin-bottom:1rem; }
+    .cta-section p { color:rgba(255,255,255,0.75); max-width:500px; margin:0 auto 2.5rem; font-size:0.97rem; }
+    footer { background:var(--dark); padding:2.5rem 0; }
+    .footer-bottom-bar { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.25); }
+    .footer-logo-sm { font-family:var(--serif); font-size:1.2rem; color:#fff; }
+    .footer-logo-sm span { color:var(--green); }
+    .back-btn { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.4); transition:color 0.15s; }
+    .back-btn:hover { color:var(--green); }
+    @media(max-width:900px){ .features-grid{grid-template-columns:1fr 1fr;} .cases-grid{grid-template-columns:1fr;} .process-steps{grid-template-columns:1fr 1fr;} .price-banner{grid-template-columns:1fr;} .pb-actions{flex-direction:row;align-items:flex-start;} }
+    @media(max-width:600px){ .features-grid,.process-steps{grid-template-columns:1fr;} }
+.svc-hero{background:linear-gradient(135deg,#fce7f3 0%,#fdf2f8 60%,#f8fafc 100%);}</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">AI <span>Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services" class="active">Services</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#pricing">Pricing</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="btn btn-green">Book a Free Audit</a>
+  </div>
+</nav>
+
+<div class="svc-hero">
+  <div class="container">
+    <div class="tag">AI Reporting Agents</div>
+    <h1>Reports That <em>Write Themselves</em>,<br>Every Single Week</h1>
+    <p class="hero-sub">Automated performance reports, client dashboards, and data summaries — generated from your live data and delivered to the right inboxes without you lifting a finger.</p>
+    <div class="hero-actions">
+      <a href="../index.html#contact" class="btn btn-green">Automate My Reports →</a>
+      <a href="#features" class="btn btn-outline">See Features</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">12<span>hrs</span></div><div class="hs-label">Saved per account/week</div></div>
+      <div class="hs"><div class="hs-num">100<span>%</span></div><div class="hs-label">On-time delivery</div></div>
+      <div class="hs"><div class="hs-num">40<span>+</span></div><div class="hs-label">Reports sent automatically</div></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="tag">The Problem We Solve</div>
+    <h2>Stop Spending Fridays <em>Building Reports</em></h2>
+    <p style="max-width:700px;margin-bottom:1.2rem;">Every Friday (or Monday, or end of month), someone on your team spends hours pulling data from dashboards, pasting it into templates, writing commentary, and emailing clients. It's repetitive, error-prone, and it pulls your best people away from actual strategy.</p>
+    <p style="max-width:700px;margin-bottom:1.2rem;">Our AI Reporting Agents pull live data from all your connected platforms, generate written commentary in your brand's voice, and send polished, personalised reports to every recipient — automatically, on schedule, every time.</p>
+    <a href="../index.html#contact" class="btn btn-green" style="margin-top:1rem;">Automate My Reporting →</a>
+  </div>
+</section>
+
+<section class="alt-bg" id="features">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;"><div class="tag">Features</div><h2>Everything Your <em>Reporting</em> Needs</h2></div>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon">🔗</div><h3>Multi-Source Data Pulls</h3><p>Connects to Google Analytics, Meta Ads, Salesforce, HubSpot, Shopify, Stripe, and more — pulling live data from every platform in one run.</p></div>
+      <div class="feat-card"><div class="feat-icon">✍️</div><h3>AI-Written Commentary</h3><p>Not just numbers — the agent writes actual analysis in your brand's tone, highlighting wins, flagging issues, and recommending next steps.</p></div>
+      <div class="feat-card"><div class="feat-icon">📅</div><h3>Scheduled Delivery</h3><p>Weekly, bi-weekly, or monthly — reports are generated and emailed to the right people at the exact time you specify, every time without fail.</p></div>
+      <div class="feat-card"><div class="feat-icon">🎨</div><h3>Branded Templates</h3><p>Reports are designed to match your brand identity — your logo, colours, and formatting. Clients receive something polished, not a spreadsheet export.</p></div>
+      <div class="feat-card"><div class="feat-icon">🔔</div><h3>Anomaly Alerts</h3><p>When something unusual happens in the data — a traffic spike, a drop in conversions, a budget overspend — the agent flags it immediately, not next Friday.</p></div>
+      <div class="feat-card"><div class="feat-icon">👁️</div><h3>Client Dashboards</h3><p>Optional live dashboards so clients can check their own data any time — reducing ad-hoc reporting requests to your team by 80%.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="margin-bottom:3rem;"><div class="tag">Use Cases</div><h2>Who Uses AI <em>Reporting Agents</em>?</h2></div>
+    <div class="cases-grid">
+      <div class="case-card"><div class="case-icon">📢</div><div><h4>Marketing Agencies</h4><p>Automated weekly performance reports sent to every client every Monday morning. 12 hours saved per account per week. Zero copy-paste errors.</p><div class="case-result">↑ Client retention improved</div></div></div>
+      <div class="case-card"><div class="case-icon">🏢</div><div><h4>In-House Marketing Teams</h4><p>Weekly board-ready reports on campaign performance, pipeline, and revenue attribution — generated overnight, ready when the team arrives.</p><div class="case-result">↑ 8hrs/week freed per analyst</div></div></div>
+      <div class="case-card"><div class="case-icon">💹</div><div><h4>Finance & Operations</h4><p>Automated P&L summaries, cash flow reports, and KPI dashboards delivered to executives on schedule — with trend analysis written in plain English.</p><div class="case-result">↑ Faster decision-making</div></div></div>
+      <div class="case-card"><div class="case-icon">🏗️</div><div><h4>SaaS Product Teams</h4><p>Weekly product usage, churn risk, and feature adoption reports distributed to all stakeholders automatically from your analytics stack.</p><div class="case-result">↑ Product decisions 2× faster</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;"><div class="tag">Process</div><h2>Live in <em>One Week</em></h2></div>
+    <div class="process-steps">
+      <div class="proc-step"><div class="proc-num">1</div><h4>Data Audit</h4><p>We identify all data sources, KPIs, and who needs to receive what reports on which schedule.</p></div>
+      <div class="proc-step"><div class="proc-num">2</div><h4>Template Design</h4><p>We design branded report templates and configure the AI commentary style to match your voice and audience.</p></div>
+      <div class="proc-step"><div class="proc-num">3</div><h4>Connect & Test</h4><p>We connect all data sources, run test reports, and validate accuracy before scheduling goes live.</p></div>
+      <div class="proc-step"><div class="proc-num">4</div><h4>Schedule & Monitor</h4><p>Reports go out on schedule. We monitor for data errors and update templates as your KPIs evolve.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="tag">Investment</div>
+    <h2 style="margin-bottom:2rem;">Transparent <em>Pricing</em></h2>
+    <div class="price-banner">
+      <div><div class="pb-label">Starting From</div><div class="pb-price"><span>$</span>2,500</div><p class="pb-desc">One-time setup + $500/month per reporting workflow. Most clients save more in staff time than the entire monthly fee within the first week.</p></div>
+      <div class="pb-actions"><a href="../index.html#contact" class="btn btn-green">Get a Quote</a><a href="../index.html#pricing" class="btn" style="background:rgba(255,255,255,0.1);color:#fff;">All Plans</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container">
+    <div style="margin-bottom:2.5rem;"><div class="tag">FAQ</div><h2>Common Questions</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What data sources can you connect to?</div><div class="faq-a"><p>Google Analytics, Meta Ads, Google Ads, HubSpot, Salesforce, Shopify, Stripe, Airtable, and many more. If it has an API or export function, we can pull from it.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How accurate is the AI commentary?</div><div class="faq-a"><p>The commentary is generated from your actual data — there's no hallucination because every sentence is grounded in numbers. We also build in human review checkpoints for high-stakes reports if required.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I customise which metrics are highlighted?</div><div class="faq-a"><p>Completely. You define the KPIs, thresholds, and sections. Reports are fully configurable and we update them whenever your priorities change.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section" style="background:linear-gradient(135deg,#9d174d,#be185d);">
+  <div class="container">
+    <div class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">Ready to Automate?</div>
+    <h2>Get Your Reporting <em>on Autopilot</em></h2>
+    <p>Book a free call. We'll show you exactly how automated reporting would look for your business and how much time you'll save.</p>
+    <a href="../index.html#contact" class="btn" style="background:#fff;color:#9d174d;font-weight:700;">Book a Free Demo →</a>
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-bottom-bar">
+    <a href="../index.html" class="footer-logo-sm">AI <span>Solutions</span></a>
+    <div class="footer-copy">© 2026 AI Solutions. All rights reserved.</div>
+    <a href="../index.html" class="back-btn">← Back to Home</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); window.scrollTo({top:t.offsetTop-72,behavior:'smooth'}); }
+  });
+});
+</script>
+
+</body>
+</html>

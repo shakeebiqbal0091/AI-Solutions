@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agentic AI Systems — AI Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:#2eb87e; --green-dark:#239c69; --green-light:#eaf8f1;
+      --ink:#111518; --dark:#1a2025; --body:#4a5568; --muted:#8a9ab0;
+      --border:#e8edf3; --bg:#ffffff; --bg2:#f8fafc; --bg3:#f1f5f9;
+      --serif:'DM Serif Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+      --radius:14px; --shadow:0 4px 24px rgba(0,0,0,0.07); --shadow-lg:0 12px 48px rgba(0,0,0,0.11);
+    }
+    html { scroll-behavior: smooth; }
+    body { background:var(--bg); color:var(--body); font-family:var(--sans); font-size:15px; line-height:1.65; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    a { text-decoration:none; color:inherit; }
+    .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .tag { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); background:var(--green-light); border-radius:100px; padding:0.3rem 0.9rem; margin-bottom:1rem; }
+    .tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); }
+    h1 { font-family:var(--serif); font-size:clamp(2.4rem,5vw,4rem); font-weight:400; color:var(--ink); line-height:1.1; letter-spacing:-0.025em; margin-bottom:1.2rem; }
+    h1 em { font-style:italic; color:var(--green); }
+    h2 { font-family:var(--serif); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:400; color:var(--ink); line-height:1.15; letter-spacing:-0.02em; margin-bottom:1rem; }
+    h2 em { font-style:italic; color:var(--green); }
+    p { color:var(--body); line-height:1.8; }
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.82rem 1.8rem; border-radius:100px; font-family:var(--sans); font-size:0.87rem; font-weight:600; cursor:pointer; border:none; transition:all 0.2s; }
+    .btn-green { background:var(--green); color:#fff; }
+    .btn-green:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(46,184,126,0.3); }
+    .btn-outline { background:transparent; color:var(--ink); border:2px solid var(--border); }
+    .btn-outline:hover { border-color:var(--green); color:var(--green); }
+    nav { position:fixed; top:0; left:0; right:0; z-index:300; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); height:70px; }
+    .nav-inner { max-width:1200px; margin:0 auto; height:100%; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; }
+    .nav-logo { font-family:var(--serif); font-size:1.5rem; color:var(--ink); font-weight:400; letter-spacing:-0.02em; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; align-items:center; gap:0.2rem; list-style:none; }
+    .nav-links a { font-size:0.85rem; font-weight:500; color:var(--body); padding:0.45rem 0.9rem; border-radius:8px; transition:color 0.15s,background 0.15s; }
+    .nav-links a:hover,.nav-links a.active { color:var(--green); }
+    @media(max-width:860px){ .nav-links{display:none;} }
+    section { padding:5.5rem 0; }
+    .alt-bg { background:var(--bg2); }
+    .svc-hero { padding:9rem 0 5rem; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
+    .hero-sub { font-size:1.05rem; color:var(--muted); max-width:580px; line-height:1.8; margin-bottom:2.5rem; }
+    .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .hero-stats { display:flex; gap:2.5rem; padding-top:2rem; border-top:1px solid rgba(0,0,0,0.08); flex-wrap:wrap; }
+    .hs-num { font-family:var(--serif); font-size:2rem; color:var(--ink); line-height:1; margin-bottom:0.2rem; }
+    .hs-num span { color:var(--green); }
+    .hs-label { font-size:0.75rem; color:var(--muted); }
+    .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .feat-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:2rem; transition:transform 0.2s,box-shadow 0.2s; }
+    .feat-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    .feat-icon { width:52px; height:52px; border-radius:14px; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.2rem; }
+    .feat-card h3 { font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem; font-family:var(--sans); }
+    .feat-card p { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+    .cases-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:1.2rem; }
+    .case-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; display:flex; gap:1rem; align-items:flex-start; }
+    .case-icon { font-size:1.8rem; flex-shrink:0; }
+    .case-card h4 { font-size:0.92rem; font-weight:700; color:var(--ink); margin-bottom:0.3rem; }
+    .case-card p { font-size:0.83rem; color:var(--muted); line-height:1.65; }
+    .case-result { display:inline-flex; align-items:center; gap:0.3rem; margin-top:0.6rem; font-size:0.75rem; font-weight:700; color:var(--green); background:var(--green-light); padding:0.22rem 0.7rem; border-radius:100px; }
+    .process-steps { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+    .proc-num { width:56px; height:56px; border-radius:50%; background:var(--green); color:#fff; font-family:var(--serif); font-size:1.3rem; display:flex; align-items:center; justify-content:center; margin:0 auto 1rem; }
+    .proc-step { text-align:center; }
+    .proc-step h4 { font-size:0.92rem; font-weight:700; color:var(--ink); margin-bottom:0.4rem; }
+    .proc-step p { font-size:0.8rem; color:var(--muted); line-height:1.65; }
+    .price-banner { background:var(--ink); border-radius:20px; padding:3.5rem; display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center; }
+    .pb-price { font-family:var(--serif); font-size:3.5rem; color:#fff; line-height:1; margin-bottom:0.5rem; }
+    .pb-price span { font-size:1.2rem; color:var(--green); }
+    .pb-desc { font-size:0.88rem; color:rgba(255,255,255,0.5); max-width:480px; line-height:1.75; }
+    .pb-label { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:rgba(255,255,255,0.4); margin-bottom:0.5rem; }
+    .pb-actions { display:flex; flex-direction:column; gap:0.8rem; align-items:center; }
+    .faq-list { display:flex; flex-direction:column; gap:1rem; max-width:800px; }
+    .faq-item { border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; }
+    .faq-q { padding:1.3rem 1.5rem; font-weight:600; color:var(--ink); font-size:0.92rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; background:var(--bg); user-select:none; }
+    .faq-q:hover { background:var(--bg2); }
+    .faq-q::after { content:'↓'; color:var(--green); transition:transform 0.2s; }
+    .faq-item.open .faq-q::after { transform:rotate(180deg); }
+    .faq-a { padding:0 1.5rem; max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.35s; }
+    .faq-item.open .faq-a { max-height:300px; padding:0 1.5rem 1.3rem; }
+    .faq-a p { font-size:0.88rem; color:var(--muted); line-height:1.75; }
+    .cta-section { padding:5rem 0; text-align:center; }
+    .cta-section h2 { color:#fff; margin-bottom:1rem; }
+    .cta-section p { color:rgba(255,255,255,0.75); max-width:500px; margin:0 auto 2.5rem; font-size:0.97rem; }
+    footer { background:var(--dark); padding:2.5rem 0; }
+    .footer-bottom-bar { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.25); }
+    .footer-logo-sm { font-family:var(--serif); font-size:1.2rem; color:#fff; }
+    .footer-logo-sm span { color:var(--green); }
+    .back-btn { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.4); transition:color 0.15s; }
+    .back-btn:hover { color:var(--green); }
+    @media(max-width:900px){ .features-grid{grid-template-columns:1fr 1fr;} .cases-grid{grid-template-columns:1fr;} .process-steps{grid-template-columns:1fr 1fr;} .price-banner{grid-template-columns:1fr;} .pb-actions{flex-direction:row;align-items:flex-start;} }
+    @media(max-width:600px){ .features-grid,.process-steps{grid-template-columns:1fr;} }
+.svc-hero{background:linear-gradient(135deg,#d0f2e5 0%,#eaf8f1 60%,#f8fafc 100%);}</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">AI <span>Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html#services" class="active">Services</a></li>
+      <li><a href="../index.html#about">About</a></li>
+      <li><a href="../index.html#pricing">Pricing</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <a href="../index.html#contact" class="btn btn-green">Book a Free Audit</a>
+  </div>
+</nav>
+
+<div class="svc-hero">
+  <div class="container">
+    <div class="tag">Agentic AI Systems</div>
+    <h1>AI Agents That <em>Work</em> While You Sleep</h1>
+    <p class="hero-sub">Autonomous AI agents that reason, plan, and execute complex multi-step tasks across your entire business — without human intervention. Not chatbots. Actual intelligent workers.</p>
+    <div class="hero-actions">
+      <a href="../index.html#contact" class="btn btn-green">Get a Free Audit →</a>
+      <a href="#how-it-works" class="btn btn-outline">See How It Works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><div class="hs-num">80<span>%</span></div><div class="hs-label">Tasks automated</div></div>
+      <div class="hs"><div class="hs-num">2<span>wk</span></div><div class="hs-label">To deployment</div></div>
+      <div class="hs"><div class="hs-num">24<span>/7</span></div><div class="hs-label">Always running</div></div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="tag">What Is It?</div>
+    <h2>More Than Automation — <em>True Intelligence</em></h2>
+    <p style="max-width:700px;margin-bottom:1.2rem;">Traditional automation follows rigid rules: if X happens, do Y. Agentic AI is different. These agents can <strong>reason about goals</strong>, break them into sub-tasks, use tools (email, search, CRM, databases), and adapt when something unexpected happens.</p>
+    <p style="max-width:700px;margin-bottom:1.2rem;">Think of it as a tireless employee who can read, write, research, make decisions, and take action across any system — without ever needing exact instructions. You give the goal. The agent figures out how.</p>
+    <a href="../index.html#contact" class="btn btn-green" style="margin-top:1rem;">Build Your First Agent →</a>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;"><div class="tag">Capabilities</div><h2>What Our Agentic AI Can Do</h2></div>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon">🧠</div><h3>Multi-Step Reasoning</h3><p>Given a goal, agents break it into sub-tasks, prioritise, and execute in the right order — adapting if something fails mid-workflow.</p></div>
+      <div class="feat-card"><div class="feat-icon">🔧</div><h3>Tool Orchestration</h3><p>Use email, web search, CRM, spreadsheets, APIs — all in a single workflow. Agents switch between tools based on what the task requires.</p></div>
+      <div class="feat-card"><div class="feat-icon">📬</div><h3>Email & Communication</h3><p>Read, categorise, draft, and send emails autonomously. Handle inbound enquiries, follow up with leads, and escalate only when needed.</p></div>
+      <div class="feat-card"><div class="feat-icon">💾</div><h3>CRM & Data Management</h3><p>Automatically log interactions, update records, create tasks — keep your CRM perfectly up to date without anyone entering a single field manually.</p></div>
+      <div class="feat-card"><div class="feat-icon">🔍</div><h3>Research & Enrichment</h3><p>Research prospects, competitors, or any topic automatically. Agents compile structured summaries and add them to your workflow in real time.</p></div>
+      <div class="feat-card"><div class="feat-icon">🛡️</div><h3>Safe Escalation</h3><p>When the agent encounters an edge case it can't handle, it pauses and alerts your team with full context — rather than guessing wrong.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div style="margin-bottom:3rem;"><div class="tag">Use Cases</div><h2>Industries We've <em>Automated</em></h2></div>
+    <div class="cases-grid">
+      <div class="case-card"><div class="case-icon">🏢</div><div><h4>Sales Lead Pipeline</h4><p>Agent monitors inbound leads, researches each prospect, sends personalised outreach, logs to CRM, and schedules follow-ups — zero manual effort.</p><div class="case-result">↑ 3× qualified meetings</div></div></div>
+      <div class="case-card"><div class="case-icon">🛒</div><div><h4>E-Commerce Order Management</h4><p>Handles queries, processes returns, updates inventory, and sends customer updates across email and chat simultaneously.</p><div class="case-result">↓ 80% support ticket volume</div></div></div>
+      <div class="case-card"><div class="case-icon">🏥</div><div><h4>Healthcare Admin</h4><p>Processes referrals, schedules appointments, sends reminders, handles pre-visit documentation — within full compliance guardrails.</p><div class="case-result">↓ 45% admin workload</div></div></div>
+      <div class="case-card"><div class="case-icon">📊</div><div><h4>Finance & Reporting</h4><p>Pulls data from multiple sources, generates reports, highlights anomalies, and emails summaries to stakeholders every week automatically.</p><div class="case-result">↑ 12hrs/week saved</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg" id="how-it-works">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem;"><div class="tag">Our Process</div><h2>How We Build Your <em>Agent</em></h2></div>
+    <div class="process-steps">
+      <div class="proc-step"><div class="proc-num">1</div><h4>Workflow Audit</h4><p>We map your manual processes and identify which tasks are highest-value to automate first.</p></div>
+      <div class="proc-step"><div class="proc-num">2</div><h4>Agent Design</h4><p>We design the decision logic, tool integrations, and escalation thresholds — your approval before anything ships.</p></div>
+      <div class="proc-step"><div class="proc-num">3</div><h4>Build & Test</h4><p>Built in staging, tested with 100s of real-world scenarios before going anywhere near production.</p></div>
+      <div class="proc-step"><div class="proc-num">4</div><h4>Deploy & Monitor</h4><p>We go live, monitor obsessively, and ship weekly improvements based on real usage data.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="tag">Investment</div>
+    <h2 style="margin-bottom:2rem;">Transparent <em>Pricing</em></h2>
+    <div class="price-banner">
+      <div><div class="pb-label">Starting From</div><div class="pb-price"><span>$</span>7,500</div><p class="pb-desc">One-time build + $1,200/month monitoring and improvements. Most clients see full ROI within 60 days.</p></div>
+      <div class="pb-actions"><a href="../index.html#contact" class="btn btn-green">Get a Custom Quote</a><a href="../index.html#pricing" class="btn" style="background:rgba(255,255,255,0.1);color:#fff;">All Plans</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <div class="container">
+    <div style="margin-bottom:2.5rem;"><div class="tag">FAQ</div><h2>Common Questions</h2></div>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need technical knowledge to use an AI agent?</div><div class="faq-a"><p>Not at all. We handle all the technical architecture, setup, and maintenance. You simply tell us your business goals and we build a system that achieves them.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How long does deployment take?</div><div class="faq-a"><p>For most single-workflow agents, we deliver a working system within 2 weeks of kickoff. Complex multi-agent systems typically take 3–5 weeks.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What happens if the agent makes a mistake?</div><div class="faq-a"><p>Every agent has escalation logic built in — if it encounters a situation it's not confident about, it pauses and notifies your team with full context rather than acting incorrectly.</p></div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can it integrate with my existing tools?</div><div class="faq-a"><p>Yes. We've built integrations with Salesforce, HubSpot, Notion, Slack, Airtable, Shopify, Google Workspace, Stripe, and dozens more. If it has an API, we can connect to it.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section" style="background:linear-gradient(135deg,#2eb87e,#1a9966);">
+  <div class="container">
+    <div class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">Ready to Automate?</div>
+    <h2>Start With a Free <em>Workflow Audit</em></h2>
+    <p>We'll map your operations, identify your top automation opportunity, and give you a clear plan — completely free.</p>
+    <a href="../index.html#contact" class="btn" style="background:#fff;color:var(--green);font-weight:700;">Book My Free Audit →</a>
+  </div>
+</div>
+
+
+<footer>
+  <div class="footer-bottom-bar">
+    <a href="../index.html" class="footer-logo-sm">AI <span>Solutions</span></a>
+    <div class="footer-copy">© 2026 AI Solutions. All rights reserved.</div>
+    <a href="../index.html" class="back-btn">← Back to Home</a>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); window.scrollTo({top:t.offsetTop-72,behavior:'smooth'}); }
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gmail Setup Guide — AI Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: #f8fafc; color: #334155; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: #2eb87e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page { max-width: 760px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    .header { text-align: center; margin-bottom: 3rem; }
+    .header-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: #eaf8f1; color: #2eb87e; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.35rem 1rem; border-radius: 100px; margin-bottom: 1.2rem; }
+    .header h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 2.4rem; font-weight: 400; color: #111518; line-height: 1.15; margin-bottom: 0.8rem; }
+    .header h1 em { font-style: italic; color: #2eb87e; }
+    .header p { color: #8a9ab0; max-width: 500px; margin: 0 auto; font-size: 0.97rem; }
+
+    /* Steps */
+    .steps { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .step {
+      background: #fff;
+      border: 1px solid #e8edf3;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+
+    .step-header {
+      display: flex; align-items: center; gap: 1.2rem;
+      padding: 1.4rem 1.8rem;
+      border-bottom: 1px solid #e8edf3;
+      background: #fff;
+    }
+
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: #2eb87e; color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+
+    .step.done .step-num { background: #059669; }
+    .step.done .step-num::after { content: '✓'; }
+
+    .step-title { font-size: 1rem; font-weight: 700; color: #111518; }
+    .step-time { margin-left: auto; font-size: 0.72rem; color: #8a9ab0; background: #f1f5f9; padding: 0.2rem 0.6rem; border-radius: 100px; white-space: nowrap; }
+
+    .step-body { padding: 1.4rem 1.8rem; }
+    .step-body p { font-size: 0.9rem; color: #4a5568; line-height: 1.75; margin-bottom: 1rem; }
+    .step-body p:last-child { margin-bottom: 0; }
+
+    /* Code block */
+    .code-block {
+      background: #0f172a;
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .code-block code {
+      font-family: 'Courier New', monospace;
+      font-size: 0.87rem;
+      color: #6ee7b7;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .code-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+    }
+    .code-highlight { color: #fbbf24; }
+    .code-muted { color: #475569; }
+
+    /* Inline badge */
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 0.18rem 0.6rem; border-radius: 6px;
+      vertical-align: middle;
+    }
+    .badge-green { background: #d1fae5; color: #065f46; }
+    .badge-blue  { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #92400e; }
+
+    /* Screenshot mockup */
+    .mockup {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 1.2rem;
+      margin: 1rem 0;
+      font-size: 0.83rem;
+      color: #64748b;
+    }
+    .mockup-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+    .mockup-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .mockup-url { background: #fff; border: 1px solid #e2e8f0; border-radius: 6px; padding: 0.3rem 0.8rem; font-size: 0.78rem; color: #2eb87e; flex: 1; }
+    .mockup-content { background: #fff; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.2rem; }
+    .mockup-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid #f1f5f9; font-size: 0.82rem; }
+    .mockup-row:last-child { border-bottom: none; }
+    .mockup-key { color: #8a9ab0; font-weight: 600; text-transform: uppercase; font-size: 0.68rem; letter-spacing: 0.06em; }
+    .mockup-val { color: #111518; font-weight: 500; }
+
+    /* Gmail mockup */
+    .gmail-mock {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 1rem 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+    .gmail-topbar {
+      background: #f6f8fc;
+      padding: 0.8rem 1.2rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex; align-items: center; gap: 0.8rem;
+      font-size: 0.8rem; color: #5f6368;
+    }
+    .gmail-logo { font-weight: 700; color: #EA4335; font-size: 1rem; }
+    .gmail-subject {
+      padding: 1rem 1.2rem 0.5rem;
+      font-weight: 700; font-size: 0.95rem; color: #111518;
+    }
+    .gmail-meta { padding: 0 1.2rem 0.8rem; font-size: 0.78rem; color: #8a9ab0; border-bottom: 1px solid #f1f5f9; }
+    .gmail-body { padding: 1rem 1.2rem; font-size: 0.85rem; color: #334155; line-height: 1.7; }
+    .gmail-table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; }
+    .gmail-table td { padding: 0.5rem 0.8rem; border: 1px solid #e2e8f0; font-size: 0.82rem; }
+    .gmail-table td:first-child { background: #f8fafc; font-weight: 600; color: #64748b; width: 35%; }
+    .gmail-table td:last-child { color: #111518; }
+
+    /* Tip box */
+    .tip {
+      display: flex; gap: 0.8rem; align-items: flex-start;
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 10px;
+      padding: 1rem 1.2rem; margin: 1rem 0;
+      font-size: 0.85rem; color: #78350f;
+    }
+    .tip-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+    .success-box {
+      display: flex; gap: 0.8rem; align-items: flex-start;
+      background: #d1fae5; border: 1px solid #6ee7b7; border-radius: 10px;
+      padding: 1rem 1.2rem; margin: 1rem 0;
+      font-size: 0.85rem; color: #065f46;
+    }
+
+    /* CTA */
+    .final-cta {
+      background: linear-gradient(135deg, #2eb87e, #059669);
+      border-radius: 16px;
+      padding: 2.5rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .final-cta h2 { font-family: 'DM Serif Display', serif; font-size: 1.8rem; font-weight: 400; color: #fff; margin-bottom: 0.5rem; }
+    .final-cta p { color: rgba(255,255,255,0.75); margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 0.4rem; background: #fff; color: #2eb87e; font-weight: 700; font-size: 0.9rem; padding: 0.8rem 2rem; border-radius: 100px; transition: transform 0.2s; }
+    .cta-btn:hover { transform: translateY(-2px); text-decoration: none; }
+
+    /* Progress bar at top */
+    .progress-bar {
+      background: #fff; border-bottom: 1px solid #e8edf3;
+      padding: 1rem 2rem; position: sticky; top: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .pb-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: #111518; }
+    .pb-logo span { color: #2eb87e; }
+    .pb-steps { display: flex; gap: 0.4rem; }
+    .pb-dot { width: 8px; height: 8px; border-radius: 50%; background: #e2e8f0; }
+    .pb-dot.active { background: #2eb87e; }
+    .pb-back { font-size: 0.8rem; color: #8a9ab0; }
+    .pb-back:hover { color: #2eb87e; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<div class="progress-bar">
+  <a href="index.html" class="pb-logo">AI <span>Solutions</span></a>
+  <a href="index.html" class="pb-back">← Back to website</a>
+</div>
+
+<div class="page">
+
+  <div class="header">
+    <div class="header-badge">⚙️ Setup Guide</div>
+    <h1>Connect Your Contact Form<br>to <em>Gmail</em></h1>
+    <p>Follow these 4 steps and every client who fills your contact form will send an email notification directly to your Gmail inbox — takes under 5 minutes.</p>
+  </div>
+
+  <div class="steps">
+
+    <!-- STEP 1 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Create a Free Formspree Account</div>
+        </div>
+        <div class="step-time">⏱ 1 min</div>
+      </div>
+      <div class="step-body">
+        <p>Formspree is the service that connects your HTML form to your Gmail. It's free for up to <strong>50 submissions/month</strong> (plenty to start with).</p>
+        <p>👉 Go to: <a href="https://formspree.io" target="_blank"><strong>formspree.io</strong></a> → Click <strong>"Get Started"</strong> → Sign up with your Gmail address.</p>
+        <div class="tip">
+          <div class="tip-icon">💡</div>
+          <div>Sign up using your Gmail address (<strong>shakeebiqbals@gmail.com</strong>) so notifications are sent directly to that inbox.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Create a New Form & Copy Your ID</div>
+        </div>
+        <div class="step-time">⏱ 1 min</div>
+      </div>
+      <div class="step-body">
+        <p>Once logged in to Formspree:</p>
+        <p>1. Click <strong>"+ New Form"</strong><br>
+           2. Name it: <strong>AI Solutions Contact</strong><br>
+           3. Set email to: <strong>shakeebiqbals@gmail.com</strong><br>
+           4. Click <strong>"Create Form"</strong></p>
+        <p>You'll see a form ID in the URL or on the dashboard — it looks like this:</p>
+        <div class="code-block">
+          <div class="code-label">Your Formspree Form URL (example)</div>
+          <code>https://formspree.io/f/<span class="code-highlight">xpwzgkrb</span>
+                                        ↑ this is your Form ID — copy it!</code>
+        </div>
+        <div class="tip">
+          <div class="tip-icon">📋</div>
+          <div>The Form ID is always 8 characters (letters + numbers). Copy just that part — e.g. <strong>xpwzgkrb</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Paste Your Form ID into index.html</div>
+        </div>
+        <div class="step-time">⏱ 1 min</div>
+      </div>
+      <div class="step-body">
+        <p>Open your <strong>index.html</strong> file in any text editor (Notepad, VS Code, etc.) and find this line:</p>
+        <div class="code-block">
+          <div class="code-label">Find this (line ~1069 in index.html)</div>
+          <code>action="https://formspree.io/f/<span class="code-highlight">YOUR_FORM_ID</span>"</code>
+        </div>
+        <p>Replace <code>YOUR_FORM_ID</code> with your actual ID:</p>
+        <div class="code-block">
+          <div class="code-label">Replace with (example)</div>
+          <code>action="https://formspree.io/f/<span class="code-highlight">xpwzgkrb</span>"</code>
+        </div>
+        <p>Save the file. That's it — the form is now connected!</p>
+        <div class="success-box">
+          <div>✅</div>
+          <div><strong>Keyboard shortcut:</strong> In any text editor, press <strong>Ctrl+F</strong> (or Cmd+F on Mac) and search for <strong>YOUR_FORM_ID</strong> to find it instantly.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step">
+      <div class="step-header">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Test It & Verify Email Arrives</div>
+        </div>
+        <div class="step-time">⏱ 2 min</div>
+      </div>
+      <div class="step-body">
+        <p>Upload your updated <strong>index.html</strong> to your website host, then:</p>
+        <p>1. Open your website and scroll to the contact form<br>
+           2. Fill it in with a test name + your own email<br>
+           3. Click <strong>"Book Service Now"</strong><br>
+           4. Check your Gmail inbox — you should receive an email like this:</p>
+
+        <div class="gmail-mock">
+          <div class="gmail-topbar">
+            <span class="gmail-logo">M</span>
+            <span>Gmail</span>
+          </div>
+          <div class="gmail-subject">🤖 New Client Inquiry — AI Solutions</div>
+          <div class="gmail-meta">
+            From: noreply@formspree.io &nbsp;→&nbsp; To: shakeebiqbals@gmail.com<br>
+            Today, 14:32
+          </div>
+          <div class="gmail-body">
+            <p style="margin-bottom:0.8rem;font-weight:600;">New form submission received:</p>
+            <table class="gmail-table">
+              <tr><td>first_name</td><td>Shakeeb</td></tr>
+              <tr><td>last_name</td><td>Test</td></tr>
+              <tr><td>email</td><td>shakeebiqbals@gmail.com</td></tr>
+              <tr><td>company</td><td>My Company</td></tr>
+              <tr><td>service</td><td>Digital FTE</td></tr>
+              <tr><td>message</td><td>I want to automate my support team...</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="tip">
+          <div class="tip-icon">📬</div>
+          <div>First submission? Formspree may send you a <strong>confirmation email first</strong> asking you to verify the form. Click the confirmation link, then test again.</div>
+        </div>
+
+        <div class="success-box">
+          <div>🎉</div>
+          <div><strong>It's working!</strong> From now on, every client who fills your contact form will trigger an instant Gmail notification with all their details.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end steps -->
+
+  <!-- EXTRA: Free vs Paid -->
+  <div style="background:#fff;border:1px solid #e8edf3;border-radius:16px;padding:2rem;margin-top:2rem;">
+    <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#111518;margin-bottom:1.2rem;font-weight:400;">Formspree Free vs Paid</h3>
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+      <thead>
+        <tr style="background:#f8fafc;">
+          <th style="text-align:left;padding:0.7rem 1rem;border:1px solid #e2e8f0;color:#64748b;font-weight:600;">Plan</th>
+          <th style="text-align:left;padding:0.7rem 1rem;border:1px solid #e2e8f0;color:#64748b;font-weight:600;">Price</th>
+          <th style="text-align:left;padding:0.7rem 1rem;border:1px solid #e2e8f0;color:#64748b;font-weight:600;">Monthly Submissions</th>
+          <th style="text-align:left;padding:0.7rem 1rem;border:1px solid #e2e8f0;color:#64748b;font-weight:600;">Best For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;font-weight:700;color:#111518;">Free</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">$0</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">50/month</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">Starting out, testing</td>
+        </tr>
+        <tr style="background:#f8fafc;">
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;font-weight:700;color:#111518;">Basic</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">$10/mo</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">1,000/month</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">Active lead generation</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;font-weight:700;color:#2eb87e;">Business ⭐</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">$40/mo</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">Unlimited</td>
+          <td style="padding:0.7rem 1rem;border:1px solid #e2e8f0;">High-volume, Slack alerts, webhooks</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.8rem;color:#8a9ab0;margin-top:1rem;">💡 <strong>Tip:</strong> Start on the free plan. Upgrade only when you're getting more than 50 leads per month — a good problem to have!</p>
+  </div>
+
+  <!-- Bonus tips -->
+  <div style="background:#fff;border:1px solid #e8edf3;border-radius:16px;padding:2rem;margin-top:1.5rem;">
+    <h3 style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:#111518;margin-bottom:1.2rem;font-weight:400;">Bonus: Get Slack Notifications Too</h3>
+    <p style="font-size:0.88rem;color:#64748b;margin-bottom:1rem;">On Formspree's paid plan you can also add a Slack webhook — so you get a Slack ping the moment a lead comes in, even on mobile.</p>
+    <p style="font-size:0.88rem;color:#64748b;">In Formspree dashboard → Your Form → <strong>Integrations</strong> → Add Slack webhook URL.</p>
+  </div>
+
+  <div class="final-cta">
+    <h2>All Done? 🎉</h2>
+    <p>Your contact form is now live and connected to Gmail. Every new lead goes straight to your inbox.</p>
+    <a href="index.html" class="cta-btn">← Back to Your Website</a>
+  </div>
+
+</div><!-- end page -->
+</body>
+</html>
