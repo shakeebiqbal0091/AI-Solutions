@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us — AI Solutions</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🤖</text></svg>"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green:#2eb87e; --green-dark:#239c69; --green-light:#eaf8f1; --green-mid:#d0f2e5;
+      --ink:#111518; --dark:#1a2025; --body:#4a5568; --muted:#8a9ab0;
+      --border:#e8edf3; --bg:#ffffff; --bg2:#f8fafc; --bg3:#f1f5f9;
+      --serif:'DM Serif Display',Georgia,serif; --sans:'DM Sans',system-ui,sans-serif;
+      --radius:14px; --shadow:0 4px 24px rgba(0,0,0,0.07); --shadow-lg:0 12px 48px rgba(0,0,0,0.11);
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--bg); color:var(--body); font-family:var(--sans); font-size:15px; line-height:1.65; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+    a { text-decoration:none; color:inherit; }
+    .container { max-width:1200px; margin:0 auto; padding:0 2rem; }
+    .tag { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.72rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); background:var(--green-light); border-radius:100px; padding:0.3rem 0.9rem; margin-bottom:1rem; }
+    .tag::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--green); }
+    h1 { font-family:var(--serif); font-size:clamp(2.4rem,5vw,4rem); font-weight:400; color:var(--ink); line-height:1.1; letter-spacing:-0.025em; margin-bottom:1.2rem; }
+    h1 em, h2 em { font-style:italic; color:var(--white); }
+    h2 { font-family:var(--serif); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:400; color:var(--ink); line-height:1.15; letter-spacing:-0.02em; margin-bottom:1rem; }
+    h3 { font-family:var(--serif); font-size:1.25rem; font-weight:400; color:var(--ink); margin-bottom:0.4rem; }
+    p { color:var(--body); line-height:1.8; }
+    .btn { display:inline-flex; align-items:center; gap:0.5rem; padding:0.82rem 1.8rem; border-radius:100px; font-family:var(--sans); font-size:0.87rem; font-weight:600; cursor:pointer; border:none; transition:all 0.2s; }
+    .btn-green { background:var(--green); color:#fff; }
+    .btn-green:hover { background:var(--green-dark); transform:translateY(-2px); box-shadow:0 8px 24px rgba(46,184,126,0.3); }
+    .btn-outline { background:transparent; color:var(--ink); border:2px solid var(--border); }
+    .btn-outline:hover { border-color:var(--green); color:var(--green); }
+    section { padding:6rem 0; }
+    .alt-bg { background:var(--bg2); }
+
+    /* ── NAV ── */
+    nav { position:fixed; top:0; left:0; right:0; z-index:300; background:rgba(255,255,255,0.97); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); height:70px; }
+    .nav-inner { max-width:1200px; margin:0 auto; height:100%; display:flex; align-items:center; justify-content:space-between; padding:0 2rem; }
+    .nav-logo { font-family:var(--serif); font-size:1.5rem; color:var(--ink); font-weight:400; letter-spacing:-0.02em; }
+    .nav-logo span { color:var(--green); }
+    .nav-links { display:flex; align-items:center; gap:0.2rem; list-style:none; }
+    .nav-links a { font-size:0.85rem; font-weight:500; color:var(--body); padding:0.45rem 0.9rem; border-radius:8px; transition:color 0.15s,background 0.15s; }
+    .nav-links a:hover { color:var(--ink); background:var(--bg3); }
+    .nav-links a.active { color:var(--green); font-weight:600; }
+    @media(max-width:860px){ .nav-links{display:none;} }
+
+    /* ── HERO ── */
+    .about-hero {
+      padding: 9rem 0 6rem;
+      background: linear-gradient(135deg, #d0f2e5 0%, #eaf8f1 50%, #f8fafc 100%);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(46,184,126,0.12), transparent 70%);
+      pointer-events: none;
+    }
+    .about-hero .tag { margin-bottom: 1.5rem; }
+    .about-hero p { font-size:1.05rem; color:var(--muted); max-width:600px; margin:0 auto 2.5rem; line-height:1.8; }
+    .hero-pills { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+    .pill { display:inline-flex; align-items:center; gap:0.5rem; background:#fff; border:1px solid var(--border); border-radius:100px; padding:0.5rem 1.2rem; font-size:0.82rem; font-weight:600; color:var(--ink); box-shadow:var(--shadow); }
+    .pill-dot { width:8px; height:8px; border-radius:50%; background:var(--green); }
+
+    /* ── STORY ── */
+    .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .story-visual {
+      position: relative;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .sv-card {
+      border-radius: 16px; padding: 2rem 1.5rem; text-align: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+    }
+    .sv-card.tall { grid-row: span 2; }
+    .sv1 { background: linear-gradient(135deg, #d0f2e5, #a7f3d0); }
+    .sv2 { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+    .sv3 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
+    .sv-emoji { font-size: 3.5rem; margin-bottom: 0.8rem; }
+    .sv-num { font-family: var(--serif); font-size: 2rem; color: var(--ink); line-height: 1; }
+    .sv-num span { color: var(--green); }
+    .sv-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-top: 0.3rem; }
+    .story-text p { margin-bottom: 1.2rem; font-size: 0.96rem; line-height: 1.8; }
+
+    /* ── VALUES ── */
+    .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .val-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:2rem; transition:transform 0.2s,box-shadow 0.2s; }
+    .val-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    .val-icon { width:52px; height:52px; border-radius:14px; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:1.2rem; }
+    .val-card h3 { font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem; font-family:var(--sans); }
+    .val-card p { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+
+    /* ── TIMELINE ── */
+    .timeline { position:relative; padding-left: 2.5rem; }
+    .timeline::before { content:''; position:absolute; left:11px; top:0; bottom:0; width:2px; background:var(--border); }
+    .tl-item { position:relative; margin-bottom:2.5rem; }
+    .tl-item:last-child { margin-bottom:0; }
+    .tl-dot { position:absolute; left:-2.5rem; top:4px; width:24px; height:24px; border-radius:50%; background:var(--green); display:flex; align-items:center; justify-content:center; font-size:0.7rem; color:#fff; font-weight:700; flex-shrink:0; }
+    .tl-year { font-size:0.72rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--green); margin-bottom:0.3rem; }
+    .tl-title { font-size:1rem; font-weight:700; color:var(--ink); margin-bottom:0.3rem; }
+    .tl-desc { font-size:0.85rem; color:var(--muted); line-height:1.7; }
+
+    /* ── TEAM ── */
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    .team-card { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; }
+    .team-card:hover { transform:translateY(-4px); box-shadow:var(--shadow-lg); }
+    .team-avatar { height:160px; display:flex; align-items:center; justify-content:center; font-size:4rem; position:relative; }
+    .ta1 { background:linear-gradient(135deg,#d0f2e5,#a7f3d0); }
+    .ta2 { background:linear-gradient(135deg,#dbeafe,#bfdbfe); }
+    .ta3 { background:linear-gradient(135deg,#fef3c7,#fde68a); }
+    .ta4 { background:linear-gradient(135deg,#fce7f3,#fbcfe8); }
+    .ta5 { background:linear-gradient(135deg,#ede9fe,#ddd6fe); }
+    .ta6 { background:linear-gradient(135deg,#d1fae5,#6ee7b7); }
+    .team-initials {
+      position:absolute; bottom:1rem; right:1rem;
+      width:36px; height:36px; border-radius:50%; background:var(--green);
+      display:flex; align-items:center; justify-content:center;
+      font-size:0.75rem; font-weight:700; color:#fff;
+    }
+    .team-body { padding:1.4rem; }
+    .team-body h3 { font-size:1.05rem; margin-bottom:0.2rem; }
+    .team-role { font-size:0.75rem; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.6rem; }
+    .team-bio { font-size:0.82rem; color:var(--muted); line-height:1.65; }
+
+    /* ── STATS BAR ── */
+    .stats-bar { background:var(--ink); padding:3.5rem 0; }
+    .stats-inner { max-width:1200px; margin:0 auto; padding:0 2rem; display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; text-align:center; }
+    .stat-item {}
+    .stat-num { font-family:var(--serif); font-size:2.8rem; color:#fff; line-height:1; margin-bottom:0.4rem; }
+    .stat-num span { color:var(--green); }
+    .stat-label { font-size:0.78rem; color:rgba(255,255,255,0.45); text-transform:uppercase; letter-spacing:0.08em; font-weight:600; }
+
+    /* ── WHY US ── */
+    .why-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+    .why-item { background:var(--bg); border:1px solid var(--border); border-radius:var(--radius); padding:1.5rem; display:flex; gap:1rem; align-items:flex-start; }
+    .why-icon { font-size:1.6rem; flex-shrink:0; }
+    .why-item h4 { font-size:0.92rem; font-weight:700; color:var(--ink); margin-bottom:0.3rem; }
+    .why-item p { font-size:0.83rem; color:var(--muted); line-height:1.65; }
+
+    /* ── CTA ── */
+    .cta-section { background:linear-gradient(135deg,#2eb87e,#059669); padding:5.5rem 0; text-align:center; }
+    .cta-section h2 { color:#fff; margin-bottom:1rem; }
+    .cta-section p { color:rgba(255,255,255,0.75); max-width:500px; margin:0 auto 2.5rem; font-size:0.97rem; }
+    .cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+
+    /* ── FOOTER ── */
+    footer { background:var(--dark); padding:2.5rem 0; }
+    .footer-bottom-bar { max-width:1200px; margin:0 auto; padding:0 2rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+    .footer-copy { font-size:0.75rem; color:rgba(255,255,255,0.25); }
+    .footer-logo-sm { font-family:var(--serif); font-size:1.2rem; color:#fff; }
+    .footer-logo-sm span { color:var(--green); }
+    .back-btn { font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.4); transition:color 0.15s; }
+    .back-btn:hover { color:var(--green); }
+
+    /* REVEAL */
+    .reveal { opacity:0; transform:translateY(20px); transition:opacity 0.6s ease,transform 0.6s ease; }
+    .reveal.in { opacity:1; transform:none; }
+
+    @media(max-width:900px){
+      .story-grid,.why-grid { grid-template-columns:1fr; }
+      .values-grid,.team-grid { grid-template-columns:1fr 1fr; }
+      .stats-inner { grid-template-columns:1fr 1fr; }
+    }
+    @media(max-width:600px){
+      .values-grid,.team-grid,.stats-inner { grid-template-columns:1fr; }
+      .story-visual { grid-template-columns:1fr 1fr; }
+      .sv-card.tall { grid-row:span 1; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">AI <span>Solutions</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="index.html#testimonials">Clients</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <a href="index.html#contact" class="btn btn-green">Book a Free Audit →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="tag">About AI Solutions</div>
+    <h1>We Build AI That <em>Actually</em><br>Works for Businesses</h1>
+    <p>We're not a software company selling subscriptions. We're a hands-on AI engineering team that gets embedded in your operations and builds automation that drives real, measurable results.</p>
+    <div class="hero-pills">
+      <div class="pill"><div class="pill-dot"></div>Founded 2022</div>
+      <div class="pill"><div class="pill-dot"></div>Based in Pakistan 🇵🇰</div>
+      <div class="pill"><div class="pill-dot"></div>30+ Businesses Automated</div>
+      <div class="pill"><div class="pill-dot"></div>100% Remote-First Team</div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">30<span>+</span></div>
+      <div class="stat-label">Businesses Automated</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">70<span>%</span></div>
+      <div class="stat-label">Avg Cost Reduction</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">120<span>+</span></div>
+      <div class="stat-label">Integrations Shipped</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">24<span>/7</span></div>
+      <div class="stat-label">AI Always Running</div>
+    </div>
+  </div>
+</div>
+
+<!-- STORY -->
+<section>
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-visual reveal">
+        <div class="sv-card sv1 tall">
+          <div class="sv-emoji">🤖</div>
+          <div class="sv-num">30<span>+</span></div>
+          <div class="sv-label">Clients served</div>
+        </div>
+        <div class="sv-card sv2">
+          <div class="sv-emoji">⚡</div>
+          <div class="sv-num">2<span>wk</span></div>
+          <div class="sv-label">Avg deployment</div>
+        </div>
+        <div class="sv-card sv3">
+          <div class="sv-emoji">💰</div>
+          <div class="sv-num">90<span>%</span></div>
+          <div class="sv-label">Cost saving vs hiring</div>
+        </div>
+      </div>
+      <div class="story-text reveal">
+        <div class="tag">Our Story</div>
+        <h2>Started With a Simple <em>Observation</em></h2>
+        <p>We watched talented business owners drowning in repetitive work copy-pasting data, answering the same emails, manually compiling reports every Friday afternoon. Work that added zero value but consumed hours every week.</p>
+        <p>We knew AI could eliminate most of it. The problem was that most AI tools required technical expertise to set up, or cost enterprise-level budgets to implement. Small and medium businesses were left out.</p>
+        <p>So we built a service that bridges that gap taking the most advanced AI technology and making it accessible, practical, and affordable for any business willing to grow smarter.</p>
+        <p>Today, our clients' AI agents have handled millions of tasks that would have otherwise required full-time human employees freeing our clients to focus on what actually grows their businesses.</p>
+        <a href="index.html#contact" class="btn btn-green" style="margin-top:1.2rem;">Work With Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="alt-bg">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="tag">Our Values</div>
+      <h2>What We Believe About <em>AI & Business</em></h2>
+    </div>
+    <div class="values-grid">
+      <div class="val-card reveal">
+        <div class="val-icon">📊</div>
+        <h3>ROI Before Everything</h3>
+        <p>We don't build AI for the sake of it. Every system we deploy is measured against a real business outcome cost saved, revenue generated, time freed. If it doesn't move the needle, it doesn't ship.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-icon">🔍</div>
+        <h3>Transparency Always</h3>
+        <p>No black boxes. Every agent we build comes with full audit logs so you can see exactly what it did and why. You're always in control, never dependent on something you can't inspect.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-icon">🛡️</div>
+        <h3>Safe by Design</h3>
+        <p>AI agents that go rogue are a real risk. We build escalation logic into everything if an agent isn't confident, it pauses and asks a human rather than guessing wrong.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-icon">🤝</div>
+        <h3>Partners, Not Vendors</h3>
+        <p>We don't disappear after launch. We monitor, improve, and evolve your AI systems every month. Your business changes your AI should too.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-icon">⚡</div>
+        <h3>Speed Matters</h3>
+        <p>Every week you spend doing something manually is a week of wasted time. We move fast most systems are live within 2 weeks because slow implementation means delayed ROI for you.</p>
+      </div>
+      <div class="val-card reveal">
+        <div class="val-icon">🌍</div>
+        <h3>Accessible AI</h3>
+        <p>Enterprise-grade AI shouldn't require enterprise budgets. We price our services so that businesses of any size can access the same quality of automation as the Fortune 500.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section>
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+      <div class="reveal">
+        <div class="tag">Our Journey</div>
+        <h2>How We Got <em>Here</em></h2>
+        <p style="margin-bottom:2.5rem;font-size:0.96rem;">From a single automation project to a full AI engineering team serving clients across 3 continents here's how AI Solutions grew.</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot">✦</div>
+            <div class="tl-year">2022 — Year 1</div>
+            <div class="tl-title">The First Automation</div>
+            <div class="tl-desc">Built our first AI agent for a Karachi-based e-commerce store cutting their support workload by 70% in 3 weeks. We knew we were onto something.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">✦</div>
+            <div class="tl-year">2023 — Year 2</div>
+            <div class="tl-title">Expanding the Team</div>
+            <div class="tl-desc">Grew from 2 to 6 engineers. Started serving clients in the UK and UAE. Shipped our first Digital FTE a full customer support role, automated end-to-end.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">✦</div>
+            <div class="tl-year">2024 — Year 3</div>
+            <div class="tl-title">30+ Clients & Growing</div>
+            <div class="tl-desc">Crossed 30 active clients, launched our AI Strategy Consulting service, and shipped 120+ production integrations without a single post-launch critical failure.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot">✦</div>
+            <div class="tl-year">2025–26 — Now</div>
+            <div class="tl-title">Building the Future</div>
+            <div class="tl-desc">Expanding into multi-agent systems and enterprise deployments. Our mission: make world-class AI automation accessible to every business, everywhere.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHY US -->
+      <div class="reveal">
+        <div class="tag">Why Choose Us</div>
+        <h2>What Makes Us <em>Different</em></h2>
+        <p style="margin-bottom:2rem;font-size:0.96rem;">Hundreds of agencies will sell you AI. Here's why our clients stay with us for years.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;">
+          <div class="why-item">
+            <div class="why-icon">🎯</div>
+            <div>
+              <h4>Outcome-Focused Contracts</h4>
+              <p>We agree on the outcome before we agree on the price. No vague deliverables you know exactly what you're getting and when.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">🔒</div>
+            <div>
+              <h4>Zero Lock-In</h4>
+              <p>No long-term contracts. We earn your business every month. If we're not delivering value, you can walk away. We've never lost a client for that reason.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">⚙️</div>
+            <div>
+              <h4>We Own the Problem</h4>
+              <p>When something breaks, we fix it. No passing the buck to the AI provider. We take full responsibility for everything we deploy.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon">📈</div>
+            <div>
+              <h4>Continuous Improvement</h4>
+              <p>Every system we deploy gets better over time. We review performance weekly and ship improvements — your AI gets smarter every month.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="alt-bg">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;" class="reveal">
+      <div class="tag">Our Team</div>
+      <h2>The People Behind <em>Your AI</em></h2>
+      <p style="color:var(--muted);max-width:520px;margin:0 auto;font-size:0.96rem;">A lean, expert team of AI engineers, integration architects, and automation specialists all obsessed with one thing: making your business more efficient.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-avatar ta1">
+          <span>👨‍💼</span>
+          <div class="team-initials">SI</div>
+        </div>
+        <div class="team-body">
+          <h3>Shakeeb Iqbal Shamsi</h3>
+          <div class="team-role">Founder & AI Strategist</div>
+          <p class="team-bio">Leads client strategy and overall AI architecture. 4+ years building automation systems for businesses across e-commerce, healthcare, and finance.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar ta2">
+          <span>👨‍💻</span>
+          <div class="team-initials">AK</div>
+        </div>
+        <div class="team-body">
+          <h3>Agentic Systems Lead</h3>
+          <div class="team-role">Agentic AI Engineer</div>
+          <p class="team-bio">Designs and builds our multi-step AI agents. Expert in LLM orchestration, tool use, and building agents that handle real-world complexity reliably.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar ta3">
+          <span>👩‍💻</span>
+          <div class="team-initials">NR</div>
+        </div>
+        <div class="team-body">
+          <h3>Conversational AI Lead</h3>
+          <div class="team-role">Chatbot & NLP Specialist</div>
+          <p class="team-bio">Specialises in training chatbots on custom knowledge bases. Builds the conversation flows, fallback logic, and escalation systems for all our chatbot deployments.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar ta4">
+          <span>👨‍🎨</span>
+          <div class="team-initials">MS</div>
+        </div>
+        <div class="team-body">
+          <h3>Digital FTE Designer</h3>
+          <div class="team-role">Persona & Workflow Design</div>
+          <p class="team-bio">Designs the persona, communication style, and decision logic for every Digital FTE. Makes sure your AI employee sounds and behaves exactly how your brand requires.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar ta5">
+          <span>👨‍🔧</span>
+          <div class="team-initials">ZA</div>
+        </div>
+        <div class="team-body">
+          <h3>Integration Architect</h3>
+          <div class="team-role">Systems & API Integration</div>
+          <p class="team-bio">120+ production integrations shipped. Connects AI systems to every tool in your stack — CRMs, ERPs, e-commerce platforms, communication tools, and custom APIs.</p>
+        </div>
+      </div>
+      <div class="team-card reveal">
+        <div class="team-avatar ta6">
+          <span>👩‍📊</span>
+          <div class="team-initials">FH</div>
+        </div>
+        <div class="team-body">
+          <h3>Analytics Lead</h3>
+          <div class="team-role">Reporting & Performance</div>
+          <p class="team-bio">Builds our automated reporting systems and monitors performance across all client deployments. Makes sure every AI agent is hitting its targets every single week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="container">
+    <div class="tag" style="background:rgba(255,255,255,0.15);color:#fff;">Ready to Work Together?</div>
+    <h2>Let's Automate Your <em>Business</em></h2>
+    <p>Book a free 30-minute discovery call. We'll map your biggest bottlenecks and show you exactly which AI systems will have the highest impact no pitch, just a plan.</p>
+    <div class="cta-btns">
+      <a href="index.html#contact" class="btn" style="background:#fff;color:var(--green);font-weight:700;">Book a Free Audit →</a>
+      <a href="index.html#services" class="btn" style="background:rgba(255,255,255,0.15);color:#fff;border:2px solid rgba(255,255,255,0.3);">See Our Services</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-bottom-bar">
+    <a href="index.html" class="footer-logo-sm">AI <span>Solutions</span></a>
+    <div class="footer-copy">© 2026 AI Solutions. All rights reserved.</div>
+    <a href="index.html" class="back-btn">← Back to Home</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 80);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
