@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Solutions | Automate Everything. Scale Without Limits.</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🤖</text></svg>"/>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🤖</text></svg>" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap"
+    rel="stylesheet" />
   <style>
     /* ── RESET & BASE ── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green:       #2eb87e;
-      --green-dark:  #239c69;
-      --green-light: #eaf8f1;
-      --green-mid:   #d0f2e5;
-      --ink:         #111518;
-      --dark:        #1a2025;
-      --body:        #4a5568;
-      --muted:       #8a9ab0;
-      --border:      #e8edf3;
-      --bg:          #ffffff;
-      --bg2:         #f8fafc;
-      --bg3:         #f1f5f9;
-      --serif:       'DM Serif Display', Georgia, serif;
-      --sans:        'DM Sans', system-ui, sans-serif;
-      --radius:      14px;
-      --shadow:      0 4px 24px rgba(0,0,0,0.07);
-      --shadow-lg:   0 12px 48px rgba(0,0,0,0.11);
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --green: #2eb87e;
+      --green-dark: #239c69;
+      --green-light: #eaf8f1;
+      --green-mid: #d0f2e5;
+      --ink: #111518;
+      --dark: #1a2025;
+      --body: #4a5568;
+      --muted: #8a9ab0;
+      --border: #e8edf3;
+      --bg: #ffffff;
+      --bg2: #f8fafc;
+      --bg3: #f1f5f9;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --radius: 14px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+      --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.11);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       background: var(--bg);
@@ -42,19 +54,45 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
     /* ── UTILITY ── */
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-    .tag {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--green);
-      background: var(--green-light); border-radius: 100px;
-      padding: 0.3rem 0.9rem; margin-bottom: 1rem;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-    .tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      background: var(--green-light);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .tag::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+    }
 
     h2 {
       font-family: var(--serif);
@@ -65,7 +103,11 @@
       letter-spacing: -0.02em;
       margin-bottom: 1rem;
     }
-    h2 em { font-style: italic; color: var(--green); }
+
+    h2 em {
+      font-style: italic;
+      color: var(--green);
+    }
 
     .section-desc {
       font-size: 0.97rem;
@@ -77,33 +119,82 @@
 
     /* ── BTN ── */
     .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.82rem 1.8rem; border-radius: 100px;
-      font-family: var(--sans); font-size: 0.87rem; font-weight: 600;
-      cursor: pointer; border: none; transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.82rem 1.8rem;
+      border-radius: 100px;
+      font-family: var(--sans);
+      font-size: 0.87rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
     }
-    .btn-green { background: var(--green); color: #fff; }
-    .btn-green:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,184,126,0.3); }
-    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--border); }
-    .btn-outline:hover { border-color: var(--green); color: var(--green); }
-    .btn-white { background: #fff; color: var(--ink); }
-    .btn-white:hover { background: var(--green); color: #fff; }
-    .btn-arrow::after { content: '→'; }
 
-    /* ════════════════════════════════
-       NAV
-    ════════════════════════════════ */
+    .btn-green {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-green:hover {
+      background: var(--green-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(46, 184, 126, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .btn-white:hover {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .btn-arrow::after {
+      content: '→';
+    }
+
+    /* ══════════════════════════════
+       NAV — COMBINED SMART NAVBAR
+    ══════════════════════════════ */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 300;
-      background: rgba(255,255,255,0.97);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 300;
+      background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       height: 70px;
+      transition: box-shadow 0.3s;
     }
+
+    nav.scrolled {
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    }
+
     .nav-inner {
-      max-width: 1200px; margin: 0 auto;
+      max-width: 1200px;
+      margin: 0 auto;
       height: 100%;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 2rem;
     }
 
@@ -113,20 +204,148 @@
       color: var(--ink);
       font-weight: 400;
       letter-spacing: -0.02em;
+      flex-shrink: 0;
     }
-    .nav-logo span { color: var(--green); }
 
-    .nav-links { display: flex; align-items: center; gap: 0.2rem; list-style: none; }
+    .nav-logo span {
+      color: var(--green);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
     .nav-links a {
-      font-size: 0.85rem; font-weight: 500; color: var(--body);
-      padding: 0.45rem 0.9rem; border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--body);
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: var(--bg3);
+    }
+
+    /* Active state — green underline pill */
+    .nav-links a.active {
+      color: var(--green);
+      font-weight: 600;
+      background: var(--green-light);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 18px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 0.4rem;
+      background: none;
+      border: none;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem 1.5rem;
+      flex-direction: column;
+      gap: 0.2rem;
+      z-index: 299;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-drawer.open {
+      display: flex;
+    }
+
+    .nav-drawer a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--body);
+      padding: 0.65rem 1rem;
+      border-radius: 10px;
       transition: color 0.15s, background 0.15s;
     }
-    .nav-links a:hover { color: var(--ink); background: var(--bg3); }
 
-    .nav-right { display: flex; align-items: center; gap: 1.2rem; }
-    .nav-phone { font-size: 0.83rem; font-weight: 600; color: var(--ink); }
-    .nav-phone span { color: var(--green); }
+    .nav-drawer a:hover {
+      color: var(--ink);
+      background: var(--bg3);
+    }
+
+    .nav-drawer a.active {
+      color: var(--green);
+      font-weight: 600;
+      background: var(--green-light);
+    }
+
+    .nav-drawer .drawer-cta {
+      margin-top: 0.8rem;
+    }
+
+    @media(max-width:860px) {
+
+      .nav-links,
+      .nav-cta-desktop {
+        display: none !important;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+    }
+
+    @media(min-width:861px) {
+      .nav-hamburger {
+        display: none;
+      }
+    }
 
     /* ════════════════════════════════
        HERO
@@ -134,13 +353,15 @@
     #hero {
       padding-top: 70px;
       min-height: 100vh;
-      
+
       overflow: hidden;
     }
 
     .hero-left {
       background: var(--bg2);
-      display: flex; flex-direction: column; justify-content: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       padding: 6rem 3rem 6rem 3rem;
       position: relative;
     }
@@ -148,22 +369,37 @@
     /* decorative circle */
     .hero-left::before {
       content: '';
-      position: absolute; top: -80px; left: -80px;
-      width: 320px; height: 320px;
+      position: absolute;
+      top: -80px;
+      left: -80px;
+      width: 320px;
+      height: 320px;
       background: var(--green-light);
       border-radius: 50%;
       z-index: 0;
     }
-    .hero-left > * { position: relative; z-index: 1; }
+
+    .hero-left>* {
+      position: relative;
+      z-index: 1;
+    }
 
     .hero-cert {
       padding-left: 50px;
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--green);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
       margin-bottom: 1.4rem;
     }
-    .hero-cert::before { content: '✦'; }
+
+    .hero-cert::before {
+      content: '✦';
+    }
 
     .hero-left h1 {
       padding-left: 50px;
@@ -175,38 +411,68 @@
       color: var(--ink);
       margin-bottom: 1.2rem;
     }
-    .hero-left h1 em { font-style: italic; color: var(--green); }
 
-    .hero-sub {
-      font-size: 1rem; color: var(--muted); margin-bottom: 2.5rem;
-      max-width: 400px; line-height: 1.75;
+    .hero-left h1 em {
+      font-style: italic;
+      color: var(--green);
     }
 
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 400px;
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
 
     .hero-proof {
-      display: flex; gap: 2rem; flex-wrap: wrap;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
       padding-top: 2.5rem;
       border-top: 1px solid var(--border);
     }
-    .hp-item { }
+
+    .hp-item {}
+
     .hp-num {
       font-family: var(--serif);
-      font-size: 1.8rem; color: var(--ink); line-height: 1; margin-bottom: 0.2rem;
+      font-size: 1.8rem;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.2rem;
     }
-    .hp-num span { color: var(--green); }
-    .hp-label { font-size: 0.75rem; color: var(--muted); }
+
+    .hp-num span {
+      color: var(--green);
+    }
+
+    .hp-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
 
     /* hero right — big photo with overlaid cards */
     .hero-right {
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
       background: var(--green);
     }
 
     .hero-bg-img {
-      width: 100%; height: 100%;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(135deg, #1a6b4a 0%, #2eb87e 50%, #5dd4a0 100%);
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
     }
 
@@ -214,69 +480,106 @@
     .hero-illustration {
       font-size: 9rem;
       opacity: 0.18;
-      position: absolute; right: -1rem; bottom: 2rem;
+      position: absolute;
+      right: -1rem;
+      bottom: 2rem;
       user-select: none;
     }
 
     /* floating cards on hero */
     .hero-float-cards {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column;
-      justify-content: flex-end; gap: 1rem;
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 1rem;
       padding: 2rem;
     }
+
     .hfc {
-      background: rgba(255,255,255,0.95);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 14px;
       padding: 1rem 1.3rem;
-      display: flex; align-items: center; gap: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       max-width: 280px;
       box-shadow: var(--shadow-lg);
       backdrop-filter: blur(8px);
     }
+
     .hfc-icon {
-      width: 44px; height: 44px; border-radius: 12px;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       background: var(--green-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
     }
-    .hfc-title { font-size: 0.82rem; font-weight: 700; color: var(--ink); }
-    .hfc-sub { font-size: 0.72rem; color: var(--muted); }
+
+    .hfc-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .hfc-sub {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
 
     .hero-top-badge {
-      position: absolute; top: 2rem; right: 2rem;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
       background: #fff;
       border-radius: 14px;
       padding: 1rem 1.3rem;
       text-align: center;
       box-shadow: var(--shadow-lg);
     }
-    .htb-num { font-family: var(--serif); font-size: 2rem; color: var(--green); line-height: 1; }
-    .htb-label { font-size: 0.7rem; color: var(--muted); margin-top: 0.2rem; }
+
+    .htb-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .htb-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
 
     /* ════════════════════════════════
 founder css
     ════════════════════════════════ */
-   .founder-section-main {
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
+    .founder-section-main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
     }
-   .founder-section {
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
- text-align: center;
+
+    .founder-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
       border-radius: 28px;
-         max-width: 1200px;
+      max-width: 1200px;
       padding: 72px 80px;
       position: relative;
       overflow: hidden;
     }
- 
+
     /* Subtle background accent */
     .founder-section::before {
       content: '';
@@ -285,11 +588,11 @@ founder css
       right: -60px;
       width: 280px;
       height: 280px;
-      background: radial-gradient(circle, rgba(32,178,236,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(32, 178, 236, 0.08) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
     }
- 
+
     .section-label {
       font-family: 'Sora', sans-serif;
       text-align: left;
@@ -301,7 +604,7 @@ founder css
       margin-bottom: 14px;
       display: block;
     }
- 
+
     .section-title {
       font-family: 'Sora', sans-serif;
       font-size: clamp(2rem, 5vw, 2.9rem);
@@ -311,33 +614,33 @@ founder css
       margin-bottom: 56px;
       line-height: 1.15;
       text-align: left;
-      
+
     }
- 
+
     .founder-card {
       display: flex;
       justify-content: center;
-     
+
       gap: 52px;
     }
- 
+
     /* Avatar */
     .avatar-wrap {
       flex-shrink: 0;
       margin-top: 80px;
       position: relative;
     }
- 
-   .avatar-ring {
+
+    .avatar-ring {
       width: 178px;
       height: 178px;
       border-radius: 50%;
       padding: 4px;
       background: linear-gradient(135deg, #2eb87e 0%, #1a9060 100%);
-      box-shadow: 0 8px 32px rgba(46,184,126,0.28);
+      box-shadow: 0 8px 32px rgba(46, 184, 126, 0.28);
     }
- 
- .avatar-ring img {
+
+    .avatar-ring img {
       width: 100%;
       height: 100%;
       border-radius: 50%;
@@ -345,9 +648,9 @@ founder css
       display: block;
       background: linear-gradient(135deg, #7ddbb0 0%, #2eb87e 100%);
     }
- 
+
     /* Placeholder avatar (gradient circle with initials) */
-      .avatar-placeholder {
+    .avatar-placeholder {
       width: 100%;
       height: 100%;
       border-radius: 50%;
@@ -361,11 +664,11 @@ founder css
       color: #fff;
       letter-spacing: 0.04em;
     }
- 
+
     /* Content */
     .founder-content {
       flex: 1;
-      padding-top: 4px; 
+      padding-top: 4px;
       width: 100%;
       height: 100%;
       display: flex;
@@ -373,7 +676,7 @@ founder css
       justify-content: left;
       align-items: start;
     }
- 
+
     .founder-name {
       font-family: 'Sora', sans-serif;
       font-size: 1.55rem;
@@ -383,14 +686,14 @@ founder css
       margin-bottom: 18px;
       text-align: left;
     }
- 
+
     .founder-bio {
       display: flex;
       flex-direction: column;
       gap: 14px;
       margin-bottom: 32px;
     }
- 
+
     .founder-bio p {
       text-align: left;
       font-size: 0.97rem;
@@ -398,9 +701,9 @@ founder css
       color: #555e6d;
       font-weight: 400;
     }
- 
-   
-   /* CTA Button */
+
+
+    /* CTA Button */
     .cta-btn {
       display: inline-flex;
       align-items: center;
@@ -417,42 +720,65 @@ founder css
       cursor: pointer;
       text-decoration: none;
       transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 18px rgba(46,184,126,0.35);
+      box-shadow: 0 4px 18px rgba(46, 184, 126, 0.35);
     }
- 
+
     .cta-btn:hover {
       background: #27a36f;
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(46,184,126,0.42);
+      box-shadow: 0 8px 28px rgba(46, 184, 126, 0.42);
     }
- 
+
     .cta-btn:active {
       transform: translateY(0);
     }
- 
+
     .cta-btn svg {
       transition: transform 0.2s ease;
     }
- 
+
     .cta-btn:hover svg {
       transform: translateX(4px);
     }
- 
+
     /* Responsive */
     @media (max-width: 680px) {
-      .founder-section { padding: 48px 28px; }
-      .founder-card { flex-direction: column; align-items: center; gap: 32px; }
-      .founder-content { text-align: center; }
-      .cta-btn { width: 100%; justify-content: center; }
+      .founder-section {
+        padding: 48px 28px;
+      }
+
+      .founder-card {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .founder-content {
+        text-align: center;
+      }
+
+      .cta-btn {
+        width: 100%;
+        justify-content: center;
+      }
     }
- 
+
     /* Fade-in animation */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
- 
-    .founder-section { animation: fadeUp 0.6s ease both; }
+
+    .founder-section {
+      animation: fadeUp 0.6s ease both;
+    }
 
     /* ════════════════════════════════
        INFO STRIP (3 cols)
@@ -461,31 +787,63 @@ founder css
       background: var(--ink);
       padding: 2.2rem 0;
     }
+
     .info-strip-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-      display: grid; grid-template-columns: repeat(3, 1fr);
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
     }
+
     .info-col {
-      display: flex; align-items: center; gap: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       padding: 0 2rem;
-      border-right: 1px solid rgba(255,255,255,0.1);
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .info-col:first-child { padding-left: 0; }
-    .info-col:last-child { border-right: none; }
+
+    .info-col:first-child {
+      padding-left: 0;
+    }
+
+    .info-col:last-child {
+      border-right: none;
+    }
+
     .info-icon {
-      width: 48px; height: 48px; border-radius: 12px;
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
       background: var(--green);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
     }
-    .info-col h4 { font-size: 0.92rem; font-weight: 700; color: #fff; margin-bottom: 0.15rem; }
-    .info-col p { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+
+    .info-col h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.15rem;
+    }
+
+    .info-col p {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.5);
+    }
 
     /* ════════════════════════════════
        ABOUT
     ════════════════════════════════ */
-    #about { padding: 7rem 0; background: var(--bg); }
+    #about {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
 
     .about-grid {
       display: grid;
@@ -508,46 +866,107 @@ founder css
       overflow: hidden;
       background: var(--bg3);
       aspect-ratio: 4/3;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 3.5rem;
       position: relative;
     }
-    .aphoto.tall { grid-row: span 2; aspect-ratio: unset; }
+
+    .aphoto.tall {
+      grid-row: span 2;
+      aspect-ratio: unset;
+    }
+
     .aphoto-inner {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 4rem;
     }
 
     /* color variants */
-    .ap1 { background: #d0f2e5; }
-    .ap2 { background: #dbeafe; }
-    .ap3 { background: #fef3c7; }
-    .ap4 { background: #fce7f3; }
+    .ap1 {
+      background: #d0f2e5;
+    }
+
+    .ap2 {
+      background: #dbeafe;
+    }
+
+    .ap3 {
+      background: #fef3c7;
+    }
+
+    .ap4 {
+      background: #fce7f3;
+    }
 
     .about-badge {
-      position: absolute; bottom: 1.5rem; left: 1.5rem;
+      position: absolute;
+      bottom: 1.5rem;
+      left: 1.5rem;
       background: var(--green);
       color: #fff;
       border-radius: 12px;
       padding: 1rem 1.3rem;
       z-index: 2;
     }
-    .ab-num { font-family: var(--serif); font-size: 2rem; line-height: 1; }
-    .ab-text { font-size: 0.72rem; margin-top: 0.2rem; opacity: 0.85; }
+
+    .ab-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .ab-text {
+      font-size: 0.72rem;
+      margin-top: 0.2rem;
+      opacity: 0.85;
+    }
 
     /* about text */
-    .about-text { }
-    .about-features { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
-    .af-item { display: flex; gap: 1.2rem; align-items: flex-start; }
-    .af-icon {
-      width: 48px; height: 48px; border-radius: 14px;
-      background: var(--green-light);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; flex-shrink: 0;
+    .about-text {}
+
+    .about-features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
-    .af-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); margin-bottom: 0.25rem; }
-    .af-item p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+    .af-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .af-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .af-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .af-item p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
 
     /* ════════════════════════════════
        SERVICES
@@ -557,8 +976,14 @@ founder css
       background: var(--bg2);
     }
 
-    .services-header { text-align: center; margin-bottom: 3.5rem; }
-    .services-header .section-desc { margin: 0 auto; }
+    .services-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-header .section-desc {
+      margin: 0 auto;
+    }
 
     .services-grid {
       display: grid;
@@ -574,50 +999,103 @@ founder css
       transition: transform 0.25s, box-shadow 0.25s;
       cursor: pointer;
     }
-    .svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+    .svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+    }
 
     .svc-img {
       height: 200px;
-      display: flex; align-items: center; justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 4.5rem;
       position: relative;
       overflow: hidden;
     }
+
     .svc-img::after {
       content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.18), transparent);
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.18), transparent);
     }
 
-    .si1 { background: linear-gradient(135deg, #d0f2e5, #a7f3d0); }
-    .si2 { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
-    .si3 { background: linear-gradient(135deg, #fef3c7, #fde68a); }
-    .si4 { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
-    .si5 { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
-    .si6 { background: linear-gradient(135deg, #d1fae5, #6ee7b7); }
+    .si1 {
+      background: linear-gradient(135deg, #d0f2e5, #a7f3d0);
+    }
 
-    .svc-body { padding: 1.5rem; }
+    .si2 {
+      background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+    }
+
+    .si3 {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+    }
+
+    .si4 {
+      background: linear-gradient(135deg, #fce7f3, #fbcfe8);
+    }
+
+    .si5 {
+      background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    }
+
+    .si6 {
+      background: linear-gradient(135deg, #d1fae5, #6ee7b7);
+    }
+
+    .svc-body {
+      padding: 1.5rem;
+    }
+
     .svc-body h3 {
       font-family: var(--serif);
-      font-size: 1.2rem; font-weight: 400;
-      color: var(--ink); margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
       letter-spacing: -0.01em;
     }
-    .svc-body p { font-size: 0.83rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
-    .svc-link {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      font-size: 0.8rem; font-weight: 700;
-      color: var(--green); transition: gap 0.15s;
+
+    .svc-body p {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
     }
-    .svc-link:hover { gap: 0.6rem; }
+
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--green);
+      transition: gap 0.15s;
+    }
+
+    .svc-link:hover {
+      gap: 0.6rem;
+    }
 
     /* ════════════════════════════════
        PRICING
     ════════════════════════════════ */
-    #pricing { padding: 7rem 0; background: var(--bg); }
+    #pricing {
+      padding: 7rem 0;
+      background: var(--bg);
+    }
 
-    .pricing-header { text-align: center; margin-bottom: 3.5rem; }
-    .pricing-header .section-desc { margin: 0 auto; }
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .pricing-header .section-desc {
+      margin: 0 auto;
+    }
 
     .pricing-grid {
       display: grid;
@@ -634,98 +1112,241 @@ founder css
       position: relative;
       transition: transform 0.25s, box-shadow 0.25s;
     }
-    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
     .price-card.featured {
       background: var(--ink);
       border-color: transparent;
       color: #fff;
     }
-    .price-card.featured .price-name { color: rgba(255,255,255,0.6); }
-    .price-card.featured .price-desc { color: rgba(255,255,255,0.5); }
-    .price-card.featured .price-feat { color: rgba(255,255,255,0.65); border-color: rgba(255,255,255,0.1); }
-    .price-card.featured .price-feat::before { color: var(--green); }
-    .price-card.featured h3 { color: #fff; }
+
+    .price-card.featured .price-name {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .price-card.featured .price-desc {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    .price-card.featured .price-feat {
+      color: rgba(255, 255, 255, 0.65);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .price-card.featured .price-feat::before {
+      color: var(--green);
+    }
+
+    .price-card.featured h3 {
+      color: #fff;
+    }
 
     .price-badge {
-      position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-      background: var(--green); color: #fff;
-      font-size: 0.7rem; font-weight: 700; padding: 0.3rem 1.1rem;
-      border-radius: 100px; white-space: nowrap;
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.3rem 1.1rem;
+      border-radius: 100px;
+      white-space: nowrap;
     }
 
     .price-name {
-      font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
     }
 
     .price-amount {
-      display: flex; align-items: baseline; gap: 0.2rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.2rem;
       margin-bottom: 0.4rem;
     }
-    .price-dollar { font-size: 1.4rem; font-weight: 700; color: var(--green); margin-top: 0.5rem; }
+
+    .price-dollar {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-top: 0.5rem;
+    }
+
     .price-num {
       font-family: var(--serif);
-      font-size: 3.5rem; color: var(--ink); line-height: 1; letter-spacing: -0.03em;
+      font-size: 3.5rem;
+      color: var(--ink);
+      line-height: 1;
+      letter-spacing: -0.03em;
     }
-    .price-card.featured .price-num { color: #fff; }
-    .price-unit { font-size: 0.82rem; color: var(--muted); }
 
-    .price-desc { font-size: 0.84rem; color: var(--muted); margin-bottom: 1.8rem; line-height: 1.65; }
+    .price-card.featured .price-num {
+      color: #fff;
+    }
 
-    .price-divider { border: none; border-top: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .price-unit {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
 
-    .price-feats { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+    .price-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+      margin-bottom: 1.8rem;
+      line-height: 1.65;
+    }
+
+    .price-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .price-feats {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      margin-bottom: 2rem;
+    }
+
     .price-feat {
-      font-size: 0.84rem; color: var(--body);
-      display: flex; align-items: center; gap: 0.6rem;
-      padding-bottom: 0.65rem; border-bottom: 1px solid var(--border);
+      font-size: 0.84rem;
+      color: var(--body);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 1px solid var(--border);
     }
-    .price-feat:last-child { border-bottom: none; padding-bottom: 0; }
-    .price-feat::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+    .price-feat:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .price-feat::before {
+      content: '✓';
+      color: var(--green);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
 
     /* ════════════════════════════════
        TESTIMONIALS
     ════════════════════════════════ */
-    #testimonials { padding: 7rem 0; background: var(--bg2); overflow: hidden; }
+    #testimonials {
+      padding: 7rem 0;
+      background: var(--bg2);
+      overflow: hidden;
+    }
 
-    .testi-header { text-align: center; margin-bottom: 3rem; }
-    .testi-header .section-desc { margin: 0 auto; }
+    .testi-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .testi-header .section-desc {
+      margin: 0 auto;
+    }
 
     /* Scrolling track — two rows */
-    .testi-track-wrap { display: flex; flex-direction: column; gap: 1.2rem; }
+    .testi-track-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
 
     .testi-track {
-      display: flex; gap: 1.2rem;
+      display: flex;
+      gap: 1.2rem;
       animation: slide 35s linear infinite;
       width: max-content;
     }
-    .testi-track:nth-child(2) { animation-direction: reverse; animation-duration: 40s; }
-    .testi-track:hover { animation-play-state: paused; }
 
-    @keyframes slide { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .testi-track:nth-child(2) {
+      animation-direction: reverse;
+      animation-duration: 40s;
+    }
+
+    .testi-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes slide {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
 
     .tcard {
       background: var(--bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 1.8rem;
-      width: 340px; flex-shrink: 0;
+      width: 340px;
+      flex-shrink: 0;
       box-shadow: var(--shadow);
     }
 
-    .tcard-stars { color: #f59e0b; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 1rem; }
-    .tcard-text { font-size: 0.88rem; color: var(--body); line-height: 1.75; margin-bottom: 1.4rem; font-style: italic; }
+    .tcard-stars {
+      color: #f59e0b;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
 
-    .tcard-author { display: flex; align-items: center; gap: 0.8rem; }
+    .tcard-text {
+      font-size: 0.88rem;
+      color: var(--body);
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+
+    .tcard-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
     .tcard-av {
-      width: 40px; height: 40px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 0.82rem; color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: #fff;
       flex-shrink: 0;
     }
-    .tcard-name { font-size: 0.88rem; font-weight: 700; color: var(--ink); }
-    .tcard-role { font-size: 0.73rem; color: var(--muted); }
+
+    .tcard-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .tcard-role {
+      font-size: 0.73rem;
+      color: var(--muted);
+    }
 
     /* ════════════════════════════════
        CTA BANNER
@@ -736,887 +1357,1439 @@ founder css
       position: relative;
       overflow: hidden;
     }
+
     #cta::before {
       content: '';
-      position: absolute; top: -100px; right: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(46,184,126,0.2), transparent 70%);
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(46, 184, 126, 0.2), transparent 70%);
     }
+
     #cta::after {
       content: '';
-      position: absolute; bottom: -100px; left: -100px;
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(46,184,126,0.12), transparent 70%);
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(46, 184, 126, 0.12), transparent 70%);
     }
 
     .cta-inner {
-      position: relative; z-index: 1;
-      display: grid; grid-template-columns: 1fr auto;
-      align-items: center; gap: 3rem;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 3rem;
     }
-    .cta-tag { color: var(--green) !important; background: rgba(46,184,126,0.15) !important; margin-bottom: 1rem; }
-    .cta-inner h2 { color: #fff; margin-bottom: 0.5rem; }
-    .cta-inner h2 em { color: var(--green); }
-    .cta-inner p { color: rgba(255,255,255,0.5); font-size: 0.95rem; max-width: 420px; }
-    .cta-actions { display: flex; gap: 1rem; flex-direction: column; align-items: flex-end; }
+
+    .cta-tag {
+      color: var(--green) !important;
+      background: rgba(46, 184, 126, 0.15) !important;
+      margin-bottom: 1rem;
+    }
+
+    .cta-inner h2 {
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-inner h2 em {
+      color: var(--green);
+    }
+
+    .cta-inner p {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.95rem;
+      max-width: 420px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      align-items: flex-end;
+    }
 
     /* ════════════════════════════════
        FOOTER
     ════════════════════════════════ */
-    footer { background: var(--dark); padding: 5rem 0 2rem; }
+    footer {
+      background: var(--dark);
+      padding: 5rem 0 2rem;
+    }
 
     .footer-grid {
-      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 3rem;
       margin-bottom: 4rem;
     }
 
-    .footer-brand { }
+    .footer-brand {}
+
     .footer-logo {
       font-family: var(--serif);
-      font-size: 1.6rem; color: #fff; margin-bottom: 1rem;
-      display: inline-block; letter-spacing: -0.02em;
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      display: inline-block;
+      letter-spacing: -0.02em;
     }
-    .footer-logo span { color: var(--green); }
-    .footer-brand p { font-size: 0.83rem; color: rgba(255,255,255,0.4); line-height: 1.75; margin-bottom: 1.5rem; }
-    .footer-socials { display: flex; gap: 0.6rem; }
+
+    .footer-logo span {
+      color: var(--green);
+    }
+
+    .footer-brand p {
+      font-size: 0.83rem;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.6rem;
+    }
+
     .footer-socials a {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: rgba(255,255,255,0.07);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.85rem; color: rgba(255,255,255,0.5);
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
       transition: background 0.15s, color 0.15s;
     }
-    .footer-socials a:hover { background: var(--green); color: #fff; }
+
+    .footer-socials a:hover {
+      background: var(--green);
+      color: #fff;
+    }
 
     .footer-col h4 {
-      font-size: 0.75rem; font-weight: 700;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: #fff; margin-bottom: 1.4rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 1.4rem;
     }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-    .footer-col ul li a { font-size: 0.83rem; color: rgba(255,255,255,0.4); transition: color 0.15s; }
-    .footer-col ul li a:hover { color: var(--green); }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-col ul li a {
+      font-size: 0.83rem;
+      color: rgba(255, 255, 255, 0.4);
+      transition: color 0.15s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--green);
+    }
 
     .footer-contact-item {
-      display: flex; align-items: flex-start; gap: 0.6rem;
-      font-size: 0.83rem; color: rgba(255,255,255,0.4);
-      margin-bottom: 0.7rem; line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.83rem;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 0.7rem;
+      line-height: 1.5;
     }
-    .footer-contact-item span { color: var(--green); margin-top: 0.1rem; }
+
+    .footer-contact-item span {
+      color: var(--green);
+      margin-top: 0.1rem;
+    }
 
     .footer-bottom {
-      max-width: 1200px; margin: 0 auto; padding: 1.5rem 2rem 0;
-      border-top: 1px solid rgba(255,255,255,0.07);
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); }
-    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
-    .footer-links a { font-size: 0.75rem; color: rgba(255,255,255,0.25); transition: color 0.15s; }
-    .footer-links a:hover { color: var(--green); }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.25);
+      transition: color 0.15s;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
+    }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.in { opacity: 1; transform: none; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: none;
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
-    @media (max-width: 900px) {
- 
 
-      #hero { grid-template-columns: 1fr; }
-      .hero-right { min-height: 340px; }
-      .about-grid { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .pricing-grid { grid-template-columns: 1fr; }
-      .cta-inner { grid-template-columns: 1fr; }
-      .cta-actions { align-items: flex-start; flex-direction: row; }
-      nav .nav-links { display: none; }
+    @media (max-width: 900px) {
+
+
+      #hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-right {
+        min-height: 340px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-actions {
+        align-items: flex-start;
+        flex-direction: row;
+      }
+
+      nav .nav-links {
+        display: none;
+      }
     }
-   
+
     @media (max-width: 600px) {
-      nav { padding: 0; }
-      .services-grid { grid-template-columns: 1fr; }
-      .info-strip-inner { grid-template-columns: 1fr; gap: 1.5rem; }
-      .info-col { border-right: none; padding: 0; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .hero-left { padding: 5rem 1.5rem 4rem; }
-      .hero-proof { gap: 1.5rem; }
+      nav {
+        padding: 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-strip-inner {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .info-col {
+        border-right: none;
+        padding: 0;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-left {
+        padding: 5rem 1.5rem 4rem;
+      }
+
+      .hero-proof {
+        gap: 1.5rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ══════════════════════════════
-     NAV
-══════════════════════════════ -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">AI <span>Solutions</span></a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#testimonials">Clients</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="nav-right">
-      <div class="nav-phone">Need Help? <span>+92 310 5139377</span></div>
-      <a href="#contact" class="btn btn-green btn-arrow">Book a Call</a>
-    </div>
-  </div>
-</nav>
 
-<!-- ══════════════════════════════
+
+  <nav id="mainNav">
+    <!-- Mobile Drawer -->
+    <div class="nav-drawer" id="navDrawer">
+      <a href="#hero">Home</a>
+      <a href="#services">Services</a>
+      <a href="about.html">About</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#testimonials">Clients</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-green drawer-cta">Book a Free Audit →</a>
+    </div>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">AI <span>Solutions</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
+        <li><a href="index.html#services" class="nav-link" data-section="services">Services</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
+        <li><a href="index.html#pricing" class="nav-link" data-section="pricing">Pricing</a></li>
+        <li><a href="index.html#testimonials" class="nav-link" data-section="testimonials">Clients</a></li>
+        <li><a href="index.html#contact" class="nav-link" data-section="contact">Contact</a></li>
+      </ul>
+
+      <a href="index.html#contact" class="btn btn-green nav-cta-desktop">Book a Free Audit →</a>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <!-- ══════════════════════════════
      HERO
 ══════════════════════════════ -->
-<section id="hero">
-  <div class="hero-left">
-    <span class="hero-cert">Officially Certified AI Agency</span>
-    <h1>Automate Everything.<br><em>Scale Without</em><br>Limits.</h1>
-    <p class="hero-sub">Fast, Reliable, and Affordable AI Automation — Agentic AI, Intelligent Chatbots, and Digital FTEs built for your business.</p>
-    <div class="hero-actions">
-      <a href="#contact" class="btn btn-green btn-arrow">Book a Free Audit</a>
-      <a href="#services" class="btn btn-outline">Explore Services</a>
-    </div>
-    <div class="hero-proof">
-      <div class="hp-item">
-        <div class="hp-num">30<span>+</span></div>
-        <div class="hp-label">Businesses Automated</div>
+  <section id="hero">
+    <div class="hero-left">
+      <span class="hero-cert">Officially Certified AI Agency</span>
+      <h1>Automate Everything.<br><em>Scale Without</em><br>Limits.</h1>
+      <p class="hero-sub">Fast, Reliable, and Affordable AI Automation — Agentic AI, Intelligent Chatbots, and Digital
+        FTEs built for your business.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-green btn-arrow">Book a Free Audit</a>
+        <a href="#services" class="btn btn-outline">Explore Services</a>
       </div>
-      <div class="hp-item">
-        <div class="hp-num">70<span>%</span></div>
-        <div class="hp-label">Cost Reduction</div>
-      </div>
-      <div class="hp-item">
-        <div class="hp-num">24<span>/7</span></div>
-        <div class="hp-label">AI Always Working</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- <div class="hero-right">
-    <div class="hero-bg-img">
-      <div class="hero-illustration">🤖</div>
-    </div>
-
-    <div class="hero-top-badge">
-      <div class="htb-num">5.0★</div>
-      <div class="htb-label">Client Rating</div>
-    </div>
-
-    <div class="hero-float-cards">
-      <div class="hfc">
-        <div class="hfc-icon">🗺️</div>
-        <div>
-          <div class="hfc-title">Global Coverage</div>
-          <div class="hfc-sub">Serving clients worldwide</div>
+      <div class="hero-proof">
+        <div class="hp-item">
+          <div class="hp-num">30<span>+</span></div>
+          <div class="hp-label">Businesses Automated</div>
         </div>
-      </div>
-      <div class="hfc">
-        <div class="hfc-icon">⚡</div>
-        <div>
-          <div class="hfc-title">2-Week Deployment</div>
-          <div class="hfc-sub">From audit to live AI system</div>
+        <div class="hp-item">
+          <div class="hp-num">70<span>%</span></div>
+          <div class="hp-label">Cost Reduction</div>
         </div>
-      </div>
-      <div class="hfc">
-        <div class="hfc-icon">🔒</div>
-        <div>
-          <div class="hfc-title">Zero Lock-in</div>
-          <div class="hfc-sub">No long-term contracts</div>
+        <div class="hp-item">
+          <div class="hp-num">24<span>/7</span></div>
+          <div class="hp-label">AI Always Working</div>
         </div>
       </div>
     </div>
-  </div> -->
-</section>
 
-<!-- ══════════════════════════════
+  </section>
+
+  <!-- ══════════════════════════════
      INFO STRIP
 ══════════════════════════════ -->
-<div class="info-strip">
-  <div class="info-strip-inner">
-    <div class="info-col">
-      <div class="info-icon">🗺️</div>
-      <div>
-        <h4>Areas of Coverage</h4>
-        <p>We deploy AI for businesses globally.</p>
+  <div class="info-strip">
+    <div class="info-strip-inner">
+      <div class="info-col">
+        <div class="info-icon">🗺️</div>
+        <div>
+          <h4>Areas of Coverage</h4>
+          <p>We deploy AI for businesses globally.</p>
+        </div>
       </div>
-    </div>
-    <div class="info-col">
-      <div class="info-icon">📅</div>
-      <div>
-        <h4>Booking Service</h4>
-        <p>Book a free 30-min discovery call today.</p>
+      <div class="info-col">
+        <div class="info-icon">📅</div>
+        <div>
+          <h4>Booking Service</h4>
+          <p>Book a free 30-min discovery call today.</p>
+        </div>
       </div>
-    </div>
-    <div class="info-col">
-      <div class="info-icon">⚡</div>
-      <div>
-        <h4>24/7 AI Agents</h4>
-        <p>Your Digital FTEs never sleep or take breaks.</p>
+      <div class="info-col">
+        <div class="info-icon">⚡</div>
+        <div>
+          <h4>24/7 AI Agents</h4>
+          <p>Your Digital FTEs never sleep or take breaks.</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ══════════════════════════════
+  <!-- ══════════════════════════════
      ABOUT
 ══════════════════════════════ -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
 
-      <!-- Photo collage -->
-      <div class="about-photos reveal">
-        <div class="aphoto ap1 tall">
-          <div class="aphoto-inner">🤖</div>
-          <div class="about-badge">
-            <div class="ab-num">30+</div>
-            <div class="ab-text">Businesses automated</div>
+        <!-- Photo collage -->
+        <div class="about-photos reveal">
+          <div class="aphoto ap1 tall">
+            <div class="aphoto-inner">🤖</div>
+            <div class="about-badge">
+              <div class="ab-num">30+</div>
+              <div class="ab-text">Businesses automated</div>
+            </div>
+          </div>
+          <div class="aphoto ap2">
+            <div class="aphoto-inner">💬</div>
+          </div>
+          <div class="aphoto ap3">
+            <div class="aphoto-inner">⚡</div>
           </div>
         </div>
-        <div class="aphoto ap2"><div class="aphoto-inner">💬</div></div>
-        <div class="aphoto ap3"><div class="aphoto-inner">⚡</div></div>
-      </div>
 
-      <!-- Text -->
-      <div class="reveal">
-        <div class="tag">About AI Solutions</div>
-        <h2>Bringing AI, Automation,<br>and <em>Intelligence</em> Together</h2>
-        <p class="section-desc">We are a team of passionate AI engineers who take pride in delivering the highest standard of automation. With years of experience, we've perfected our methods to ensure every deployment drives measurable ROI from day one.</p>
+        <!-- Text -->
+        <div class="reveal">
+          <div class="tag">About AI Solutions</div>
+          <h2>Bringing AI, Automation,<br>and <em>Intelligence</em> Together</h2>
+          <p class="section-desc">We are a team of passionate AI engineers who take pride in delivering the highest
+            standard of automation. With years of experience, we've perfected our methods to ensure every deployment
+            drives measurable ROI from day one.</p>
 
-        <div class="about-features">
-          <div class="af-item">
-            <div class="af-icon">👥</div>
-            <div>
-              <h4>Professional Team</h4>
-              <p>Our trained AI engineers ensure professional, trusted deployments and impeccable, measurable results for every client.</p>
+          <div class="about-features">
+            <div class="af-item">
+              <div class="af-icon">👥</div>
+              <div>
+                <h4>Professional Team</h4>
+                <p>Our trained AI engineers ensure professional, trusted deployments and impeccable, measurable results
+                  for every client.</p>
+              </div>
             </div>
-          </div>
-          <div class="af-item">
-            <div class="af-icon">📅</div>
-            <div>
-              <h4>On Time Delivery</h4>
-              <p>Reliable, punctual deployments that respect your timeline — first AI system live in 2 weeks, guaranteed.</p>
+            <div class="af-item">
+              <div class="af-icon">📅</div>
+              <div>
+                <h4>On Time Delivery</h4>
+                <p>Reliable, punctual deployments that respect your timeline — first AI system live in 2 weeks,
+                  guaranteed.</p>
+              </div>
             </div>
-          </div>
-          <div class="af-item">
-            <div class="af-icon">💰</div>
-            <div>
-              <h4>Transparent Pricing</h4>
-              <p>Affordable, upfront pricing with no hidden costs — enterprise-grade AI at a price that makes your CFO happy.</p>
+            <div class="af-item">
+              <div class="af-icon">💰</div>
+              <div>
+                <h4>Transparent Pricing</h4>
+                <p>Affordable, upfront pricing with no hidden costs — enterprise-grade AI at a price that makes your CFO
+                  happy.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════
+  <!-- ══════════════════════════════
      SERVICES
 ══════════════════════════════ -->
-<section id="services">
-  <div class="container">
-    <div class="services-header reveal">
-      <div class="tag">Our Services</div>
-      <h2>Our AI Automation Services</h2>
-      <p class="section-desc">Whether it's a simple chatbot or a full autonomous agent workforce, our expert team delivers solutions that automate your operations and grow your revenue.</p>
-    </div>
+  <section id="services">
+    <div class="container">
+      <div class="services-header reveal">
+        <div class="tag">Our Services</div>
+        <h2>Our AI Automation Services</h2>
+        <p class="section-desc">Whether it's a simple chatbot or a full autonomous agent workforce, our expert team
+          delivers solutions that automate your operations and grow your revenue.</p>
+      </div>
 
-    <div class="services-grid">
-      <div class="svc-card reveal">
-        <div class="svc-img si1"><span style="position:relative;z-index:1">🤖</span></div>
-        <div class="svc-body">
-          <h3>Agentic AI Systems</h3>
-          <p>Autonomous AI agents that reason, plan, and execute complex multi-step tasks — emailing, updating CRMs, qualifying leads, all without human involvement.</p>
-          <a href="services/agentic-ai.html" class="svc-link">Learn More →</a>
+      <div class="services-grid">
+        <div class="svc-card reveal">
+          <div class="svc-img si1"><span style="position:relative;z-index:1">🤖</span></div>
+          <div class="svc-body">
+            <h3>Agentic AI Systems</h3>
+            <p>Autonomous AI agents that reason, plan, and execute complex multi-step tasks — emailing, updating CRMs,
+              qualifying leads, all without human involvement.</p>
+            <a href="services/agentic-ai.html" class="svc-link">Learn More →</a>
+          </div>
         </div>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-img si2"><span style="position:relative;z-index:1">💬</span></div>
-        <div class="svc-body">
-          <h3>Intelligent Chatbots</h3>
-          <p>Conversational AI trained on your exact knowledge base, brand voice, and processes — deployed on your website, WhatsApp, or any channel.</p>
-          <a href="services/chatbots.html" class="svc-link">Learn More →</a>
+        <div class="svc-card reveal">
+          <div class="svc-img si2"><span style="position:relative;z-index:1">💬</span></div>
+          <div class="svc-body">
+            <h3>Intelligent Chatbots</h3>
+            <p>Conversational AI trained on your exact knowledge base, brand voice, and processes — deployed on your
+              website, WhatsApp, or any channel.</p>
+            <a href="services/chatbots.html" class="svc-link">Learn More →</a>
+          </div>
         </div>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-img si3"><span style="position:relative;z-index:1">👤</span></div>
-        <div class="svc-body">
-          <h3>Digital FTEs</h3>
-          <p>Full-role AI employees owning entire job functions — customer support, outreach, reporting — at 90% lower cost than human hires.</p>
-          <a href="services/digital-ftes.html" class="svc-link">Learn More →</a>
+        <div class="svc-card reveal">
+          <div class="svc-img si3"><span style="position:relative;z-index:1">👤</span></div>
+          <div class="svc-body">
+            <h3>Digital FTEs</h3>
+            <p>Full-role AI employees owning entire job functions — customer support, outreach, reporting — at 90% lower
+              cost than human hires.</p>
+            <a href="services/digital-ftes.html" class="svc-link">Learn More →</a>
+          </div>
         </div>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-img si4"><span style="position:relative;z-index:1">📊</span></div>
-        <div class="svc-body">
-          <h3>AI Reporting Agents</h3>
-          <p>Automated weekly client reports, performance dashboards, and data summaries — generated and sent without lifting a finger.</p>
-          <a href="services/reporting-agents.html" class="svc-link">Learn More →</a>
+        <div class="svc-card reveal">
+          <div class="svc-img si4"><span style="position:relative;z-index:1">📊</span></div>
+          <div class="svc-body">
+            <h3>AI Reporting Agents</h3>
+            <p>Automated weekly client reports, performance dashboards, and data summaries — generated and sent without
+              lifting a finger.</p>
+            <a href="services/reporting-agents.html" class="svc-link">Learn More →</a>
+          </div>
         </div>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-img si5"><span style="position:relative;z-index:1">🔗</span></div>
-        <div class="svc-body">
-          <h3>Systems Integration</h3>
-          <p>Connect AI to your CRM, ERP, helpdesk, and communication stack. We've shipped 120+ production integrations without a single post-launch failure.</p>
-          <a href="services/systems-integration.html" class="svc-link">Learn More →</a>
+        <div class="svc-card reveal">
+          <div class="svc-img si5"><span style="position:relative;z-index:1">🔗</span></div>
+          <div class="svc-body">
+            <h3>Systems Integration</h3>
+            <p>Connect AI to your CRM, ERP, helpdesk, and communication stack. We've shipped 120+ production
+              integrations without a single post-launch failure.</p>
+            <a href="services/systems-integration.html" class="svc-link">Learn More →</a>
+          </div>
         </div>
-      </div>
-      <div class="svc-card reveal">
-        <div class="svc-img si6"><span style="position:relative;z-index:1">🚀</span></div>
-        <div class="svc-body">
-          <h3>AI Strategy Consulting</h3>
-          <p>Not sure where to start? We audit your operations, identify the highest-ROI automation opportunities, and give you a clear implementation roadmap.</p>
-          <a href="services/ai-consulting.html" class="svc-link">Learn More →</a>
+        <div class="svc-card reveal">
+          <div class="svc-img si6"><span style="position:relative;z-index:1">🚀</span></div>
+          <div class="svc-body">
+            <h3>AI Strategy Consulting</h3>
+            <p>Not sure where to start? We audit your operations, identify the highest-ROI automation opportunities, and
+              give you a clear implementation roadmap.</p>
+            <a href="services/ai-consulting.html" class="svc-link">Learn More →</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════
+  <!-- ══════════════════════════════
      PRICING
 ══════════════════════════════ -->
-<section id="pricing">
-  <div class="container">
-    <div class="pricing-header reveal">
-      <div class="tag">Complete Solutions</div>
-      <h2>Pricing Plans</h2>
-      <p class="section-desc">Choose from flexible, affordable AI automation plans designed to fit your needs — from a single chatbot to a full Digital FTE workforce.</p>
+  <section id="pricing">
+    <div class="container">
+      <div class="pricing-header reveal">
+        <div class="tag">Complete Solutions</div>
+        <h2>Pricing Plans</h2>
+        <p class="section-desc">Choose from flexible, affordable AI automation plans designed to fit your needs — from a
+          single chatbot to a full Digital FTE workforce.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="price-name">Starter</div>
+          <div class="price-amount">
+            <span class="price-dollar">$</span>
+            <span class="price-num">2,500</span>
+          </div>
+          <div class="price-unit">One-time setup + $500/mo support</div>
+          <p class="price-desc" style="margin-top:0.6rem">Perfect for businesses wanting their first AI chatbot or
+            single-use automation deployed fast.</p>
+          <hr class="price-divider" />
+          <ul class="price-feats">
+            <li class="price-feat">1 intelligent chatbot or AI agent</li>
+            <li class="price-feat">1 platform integration</li>
+            <li class="price-feat">Trained on your knowledge base</li>
+            <li class="price-feat">2-week delivery</li>
+            <li class="price-feat">1 month post-launch support</li>
+          </ul>
+          <a href="#contact" onclick="selectPlan('Starter')" class="btn btn-outline"
+            style="width:100%;justify-content:center;border-radius:10px">Book Now</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-name">Growth</div>
+          <div class="price-amount">
+            <span class="price-dollar">$</span>
+            <span class="price-num">7,500</span>
+          </div>
+          <div class="price-unit" style="color:rgba(255,255,255,0.4)">One-time + $1,200/mo support</div>
+          <p class="price-desc" style="margin-top:0.6rem">For businesses ready to deploy a full Digital FTE or
+            multi-agent agentic system.</p>
+          <hr class="price-divider" style="border-color:rgba(255,255,255,0.1)" />
+          <ul class="price-feats">
+            <li class="price-feat">Full Digital FTE or Agentic system</li>
+            <li class="price-feat">Up to 5 integrations</li>
+            <li class="price-feat">Custom persona & voice design</li>
+            <li class="price-feat">Analytics dashboard</li>
+            <li class="price-feat">Priority support & weekly check-ins</li>
+            <li class="price-feat">Continuous model improvements</li>
+          </ul>
+          <a href="#contact" onclick="selectPlan('Growth')" class="btn btn-green"
+            style="width:100%;justify-content:center;border-radius:10px">Book Now</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-name">Enterprise</div>
+          <div class="price-amount">
+            <span class="price-dollar" style="font-size:1rem;margin-top:0.8rem"></span>
+            <span class="price-num" style="font-size:2.5rem">Custom</span>
+          </div>
+          <div class="price-unit">Scoped to your requirements</div>
+          <p class="price-desc" style="margin-top:0.6rem">Large-scale AI deployments across multiple departments, teams,
+            or business units.</p>
+          <hr class="price-divider" />
+          <ul class="price-feats">
+            <li class="price-feat">Multiple agents & Digital FTEs</li>
+            <li class="price-feat">Unlimited integrations</li>
+            <li class="price-feat">Private cloud deployment</li>
+            <li class="price-feat">Dedicated AI engineer</li>
+            <li class="price-feat">SLA guarantees</li>
+            <li class="price-feat">Quarterly strategy reviews</li>
+          </ul>
+          <a href="#contact" onclick="selectPlan('Enterprise')" class="btn btn-outline"
+            style="width:100%;justify-content:center;border-radius:10px">Book Now</a>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="price-name">Starter</div>
-        <div class="price-amount">
-          <span class="price-dollar">$</span>
-          <span class="price-num">2,500</span>
-        </div>
-        <div class="price-unit">One-time setup + $500/mo support</div>
-        <p class="price-desc" style="margin-top:0.6rem">Perfect for businesses wanting their first AI chatbot or single-use automation deployed fast.</p>
-        <hr class="price-divider"/>
-        <ul class="price-feats">
-          <li class="price-feat">1 intelligent chatbot or AI agent</li>
-          <li class="price-feat">1 platform integration</li>
-          <li class="price-feat">Trained on your knowledge base</li>
-          <li class="price-feat">2-week delivery</li>
-          <li class="price-feat">1 month post-launch support</li>
-        </ul>
-        <a href="#contact" onclick="selectPlan('Starter')" class="btn btn-outline" style="width:100%;justify-content:center;border-radius:10px">Book Now</a>
-      </div>
-
-      <div class="price-card featured reveal">
-        <div class="price-badge">Most Popular</div>
-        <div class="price-name">Growth</div>
-        <div class="price-amount">
-          <span class="price-dollar">$</span>
-          <span class="price-num">7,500</span>
-        </div>
-        <div class="price-unit" style="color:rgba(255,255,255,0.4)">One-time + $1,200/mo support</div>
-        <p class="price-desc" style="margin-top:0.6rem">For businesses ready to deploy a full Digital FTE or multi-agent agentic system.</p>
-        <hr class="price-divider" style="border-color:rgba(255,255,255,0.1)"/>
-        <ul class="price-feats">
-          <li class="price-feat">Full Digital FTE or Agentic system</li>
-          <li class="price-feat">Up to 5 integrations</li>
-          <li class="price-feat">Custom persona & voice design</li>
-          <li class="price-feat">Analytics dashboard</li>
-          <li class="price-feat">Priority support & weekly check-ins</li>
-          <li class="price-feat">Continuous model improvements</li>
-        </ul>
-        <a href="#contact" onclick="selectPlan('Growth')" class="btn btn-green" style="width:100%;justify-content:center;border-radius:10px">Book Now</a>
-      </div>
-
-      <div class="price-card reveal">
-        <div class="price-name">Enterprise</div>
-        <div class="price-amount">
-          <span class="price-dollar" style="font-size:1rem;margin-top:0.8rem"></span>
-          <span class="price-num" style="font-size:2.5rem">Custom</span>
-        </div>
-        <div class="price-unit">Scoped to your requirements</div>
-        <p class="price-desc" style="margin-top:0.6rem">Large-scale AI deployments across multiple departments, teams, or business units.</p>
-        <hr class="price-divider"/>
-        <ul class="price-feats">
-          <li class="price-feat">Multiple agents & Digital FTEs</li>
-          <li class="price-feat">Unlimited integrations</li>
-          <li class="price-feat">Private cloud deployment</li>
-          <li class="price-feat">Dedicated AI engineer</li>
-          <li class="price-feat">SLA guarantees</li>
-          <li class="price-feat">Quarterly strategy reviews</li>
-        </ul>
-        <a href="#contact" onclick="selectPlan('Enterprise')" class="btn btn-outline" style="width:100%;justify-content:center;border-radius:10px">Book Now</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════
+  <!-- ══════════════════════════════
      TESTIMONIALS
 ══════════════════════════════ -->
-<section id="testimonials">
-  <div class="container">
-    <div class="testi-header reveal">
-      <div class="tag">Testimonials</div>
-      <h2>Our Happy Clients</h2>
-      <p class="section-desc">Real results from real businesses that trusted us to automate their operations.</p>
-    </div>
-  </div>
-
-  <div class="testi-track-wrap">
-    <!-- Row 1 -->
-    <div class="testi-track">
-      <!-- cards × 2 for seamless loop -->
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Our Digital FTE now handles 80% of all support tickets autonomously. We saved the equivalent of two full-time salaries in the first quarter alone — and that's our CFO's number, not a marketing stat."</p><div class="tcard-author"><div class="tcard-av" style="background:#6366f1">NP</div><div><div class="tcard-name">Nadia Patel</div><div class="tcard-role">COO — ScaleCart E-commerce</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Our sales team now only talks to pre-qualified warm leads. Pipeline velocity tripled within two months. The ROI on the retainer was positive in week three — I've never seen that with any other vendor."</p><div class="tcard-author"><div class="tcard-av" style="background:#0891b2">DW</div><div><div class="tcard-name">Daniel Walsh</div><div class="tcard-role">Founder — Veritas Capital</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Patient acquisition cost dropped 61% in four months. The AI chatbot handles scheduling, reminders, and FAQs with a satisfaction score higher than our previous human-managed system."</p><div class="tcard-author"><div class="tcard-av" style="background:#059669">SR</div><div><div class="tcard-name">Dr. Sara Rehman</div><div class="tcard-role">Director — ClearPath Clinics</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Churn dropped 38% in 90 days. That number alone justified three years of their retainer fee. The onboarding Digital FTE is now our most reliable team member."</p><div class="tcard-author"><div class="tcard-av" style="background:#d97706">OS</div><div><div class="tcard-name">Omar Siddiqui</div><div class="tcard-role">Head of Growth — NovaSaaS</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"We saved 12 hours per account per week with the reporting agent. 40 personalised client reports land in inboxes every Monday automatically. Client retention went up because the quality improved."</p><div class="tcard-author"><div class="tcard-av" style="background:#7c3aed">LF</div><div><div class="tcard-name">Lena Fischer</div><div class="tcard-role">MD — GrowthEdge Agency</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"5× more property viewings booked via the WhatsApp AI agent. Our team was skeptical about AI — now they won't go back. Genuinely the best investment we've made in operations."</p><div class="tcard-author"><div class="tcard-av" style="background:#be185d">AK</div><div><div class="tcard-name">Asad Khan</div><div class="tcard-role">CEO — PropView Real Estate</div></div></div></div>
-      <!-- duplicate for loop -->
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Our Digital FTE now handles 80% of all support tickets autonomously. We saved the equivalent of two full-time salaries in the first quarter alone — and that's our CFO's number, not a marketing stat."</p><div class="tcard-author"><div class="tcard-av" style="background:#6366f1">NP</div><div><div class="tcard-name">Nadia Patel</div><div class="tcard-role">COO — ScaleCart E-commerce</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Our sales team now only talks to pre-qualified warm leads. Pipeline velocity tripled within two months. The ROI on the retainer was positive in week three — I've never seen that with any other vendor."</p><div class="tcard-author"><div class="tcard-av" style="background:#0891b2">DW</div><div><div class="tcard-name">Daniel Walsh</div><div class="tcard-role">Founder — Veritas Capital</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Patient acquisition cost dropped 61% in four months. The AI chatbot handles scheduling, reminders, and FAQs with a satisfaction score higher than our previous human-managed system."</p><div class="tcard-author"><div class="tcard-av" style="background:#059669">SR</div><div><div class="tcard-name">Dr. Sara Rehman</div><div class="tcard-role">Director — ClearPath Clinics</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Churn dropped 38% in 90 days. That number alone justified three years of their retainer fee. The onboarding Digital FTE is now our most reliable team member."</p><div class="tcard-author"><div class="tcard-av" style="background:#d97706">OS</div><div><div class="tcard-name">Omar Siddiqui</div><div class="tcard-role">Head of Growth — NovaSaaS</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"We saved 12 hours per account per week with the reporting agent. 40 personalised client reports land in inboxes every Monday automatically. Client retention went up because the quality improved."</p><div class="tcard-author"><div class="tcard-av" style="background:#7c3aed">LF</div><div><div class="tcard-name">Lena Fischer</div><div class="tcard-role">MD — GrowthEdge Agency</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"5× more property viewings booked via the WhatsApp AI agent. Our team was skeptical about AI — now they won't go back. Genuinely the best investment we've made in operations."</p><div class="tcard-author"><div class="tcard-av" style="background:#be185d">AK</div><div><div class="tcard-name">Asad Khan</div><div class="tcard-role">CEO — PropView Real Estate</div></div></div></div>
+  <section id="testimonials">
+    <div class="container">
+      <div class="testi-header reveal">
+        <div class="tag">Testimonials</div>
+        <h2>Our Happy Clients</h2>
+        <p class="section-desc">Real results from real businesses that trusted us to automate their operations.</p>
+      </div>
     </div>
 
-    <!-- Row 2 (reverse) -->
-    <div class="testi-track">
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The integration with our CRM was seamless. Our AI agent now logs every customer interaction, sends follow-up emails, and flags escalations — we literally haven't touched the queue in weeks."</p><div class="tcard-author"><div class="tcard-av" style="background:#0f766e">MH</div><div><div class="tcard-name">Maria Hassan</div><div class="tcard-role">Operations Lead — TechFlow SaaS</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Within 6 weeks of deploying the agentic pipeline, our outreach volume quadrupled while our team size stayed the same. It's like hiring four extra SDRs without the overhead."</p><div class="tcard-author"><div class="tcard-av" style="background:#92400e">RJ</div><div><div class="tcard-name">Rayan Javed</div><div class="tcard-role">Sales Director — FinEdge Capital</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"I was worried about AI sounding robotic with our luxury clients. The Digital FTE's tone, vocabulary, and cadence is indistinguishable from our best human agents. Clients have no idea."</p><div class="tcard-author"><div class="tcard-av" style="background:#1e40af">CB</div><div><div class="tcard-name">Charlotte Bell</div><div class="tcard-role">CX Director — Prestige Retail</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"We went from manually compiling 8-hour monthly reports to getting them automated in 12 minutes. The quality is actually better — no copy-paste errors, always on time, always formatted perfectly."</p><div class="tcard-author"><div class="tcard-av" style="background:#065f46">SN</div><div><div class="tcard-name">Saad Noor</div><div class="tcard-role">Analytics Manager — Atlas Corp</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The discovery workshop alone was worth it — they found 7 high-ROI automation opportunities we'd never considered. We implemented 3 of them and the payback period was under 60 days."</p><div class="tcard-author"><div class="tcard-av" style="background:#5b21b6">TK</div><div><div class="tcard-name">Tariq Khalid</div><div class="tcard-role">CEO — BuildRight Construction</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Zero lock-in contracts was the thing that sold me. They were so confident in their work that they didn't need to trap us. 14 months later, we've expanded from one agent to six."</p><div class="tcard-author"><div class="tcard-av" style="background:#9d174d">YF</div><div><div class="tcard-name">Yasmine Farsi</div><div class="tcard-role">COO — SwiftShip Logistics</div></div></div></div>
-      <!-- duplicates -->
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The integration with our CRM was seamless. Our AI agent now logs every customer interaction, sends follow-up emails, and flags escalations — we literally haven't touched the queue in weeks."</p><div class="tcard-author"><div class="tcard-av" style="background:#0f766e">MH</div><div><div class="tcard-name">Maria Hassan</div><div class="tcard-role">Operations Lead — TechFlow SaaS</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Within 6 weeks of deploying the agentic pipeline, our outreach volume quadrupled while our team size stayed the same. It's like hiring four extra SDRs without the overhead."</p><div class="tcard-author"><div class="tcard-av" style="background:#92400e">RJ</div><div><div class="tcard-name">Rayan Javed</div><div class="tcard-role">Sales Director — FinEdge Capital</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"I was worried about AI sounding robotic with our luxury clients. The Digital FTE's tone, vocabulary, and cadence is indistinguishable from our best human agents. Clients have no idea."</p><div class="tcard-author"><div class="tcard-av" style="background:#1e40af">CB</div><div><div class="tcard-name">Charlotte Bell</div><div class="tcard-role">CX Director — Prestige Retail</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"We went from manually compiling 8-hour monthly reports to getting them automated in 12 minutes. The quality is actually better — no copy-paste errors, always on time, always formatted perfectly."</p><div class="tcard-author"><div class="tcard-av" style="background:#065f46">SN</div><div><div class="tcard-name">Saad Noor</div><div class="tcard-role">Analytics Manager — Atlas Corp</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"The discovery workshop alone was worth it — they found 7 high-ROI automation opportunities we'd never considered. We implemented 3 of them and the payback period was under 60 days."</p><div class="tcard-author"><div class="tcard-av" style="background:#5b21b6">TK</div><div><div class="tcard-name">Tariq Khalid</div><div class="tcard-role">CEO — BuildRight Construction</div></div></div></div>
-      <div class="tcard"><div class="tcard-stars">★★★★★</div><p class="tcard-text">"Zero lock-in contracts was the thing that sold me. They were so confident in their work that they didn't need to trap us. 14 months later, we've expanded from one agent to six."</p><div class="tcard-author"><div class="tcard-av" style="background:#9d174d">YF</div><div><div class="tcard-name">Yasmine Farsi</div><div class="tcard-role">COO — SwiftShip Logistics</div></div></div></div>
-    </div>
-  </div>
-</section>
+    <div class="testi-track-wrap">
+      <!-- Row 1 -->
+      <div class="testi-track">
+        <!-- cards × 2 for seamless loop -->
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Our Digital FTE now handles 80% of all support tickets autonomously. We saved the
+            equivalent of two full-time salaries in the first quarter alone — and that's our CFO's number, not a
+            marketing stat."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#6366f1">NP</div>
+            <div>
+              <div class="tcard-name">Nadia Patel</div>
+              <div class="tcard-role">COO — ScaleCart E-commerce</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Our sales team now only talks to pre-qualified warm leads. Pipeline velocity tripled
+            within two months. The ROI on the retainer was positive in week three — I've never seen that with any other
+            vendor."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#0891b2">DW</div>
+            <div>
+              <div class="tcard-name">Daniel Walsh</div>
+              <div class="tcard-role">Founder — Veritas Capital</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Patient acquisition cost dropped 61% in four months. The AI chatbot handles scheduling,
+            reminders, and FAQs with a satisfaction score higher than our previous human-managed system."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#059669">SR</div>
+            <div>
+              <div class="tcard-name">Dr. Sara Rehman</div>
+              <div class="tcard-role">Director — ClearPath Clinics</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Churn dropped 38% in 90 days. That number alone justified three years of their retainer
+            fee. The onboarding Digital FTE is now our most reliable team member."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#d97706">OS</div>
+            <div>
+              <div class="tcard-name">Omar Siddiqui</div>
+              <div class="tcard-role">Head of Growth — NovaSaaS</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"We saved 12 hours per account per week with the reporting agent. 40 personalised client
+            reports land in inboxes every Monday automatically. Client retention went up because the quality improved."
+          </p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#7c3aed">LF</div>
+            <div>
+              <div class="tcard-name">Lena Fischer</div>
+              <div class="tcard-role">MD — GrowthEdge Agency</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"5× more property viewings booked via the WhatsApp AI agent. Our team was skeptical
+            about AI — now they won't go back. Genuinely the best investment we've made in operations."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#be185d">AK</div>
+            <div>
+              <div class="tcard-name">Asad Khan</div>
+              <div class="tcard-role">CEO — PropView Real Estate</div>
+            </div>
+          </div>
+        </div>
+        <!-- duplicate for loop -->
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Our Digital FTE now handles 80% of all support tickets autonomously. We saved the
+            equivalent of two full-time salaries in the first quarter alone — and that's our CFO's number, not a
+            marketing stat."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#6366f1">NP</div>
+            <div>
+              <div class="tcard-name">Nadia Patel</div>
+              <div class="tcard-role">COO — ScaleCart E-commerce</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Our sales team now only talks to pre-qualified warm leads. Pipeline velocity tripled
+            within two months. The ROI on the retainer was positive in week three — I've never seen that with any other
+            vendor."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#0891b2">DW</div>
+            <div>
+              <div class="tcard-name">Daniel Walsh</div>
+              <div class="tcard-role">Founder — Veritas Capital</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Patient acquisition cost dropped 61% in four months. The AI chatbot handles scheduling,
+            reminders, and FAQs with a satisfaction score higher than our previous human-managed system."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#059669">SR</div>
+            <div>
+              <div class="tcard-name">Dr. Sara Rehman</div>
+              <div class="tcard-role">Director — ClearPath Clinics</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Churn dropped 38% in 90 days. That number alone justified three years of their retainer
+            fee. The onboarding Digital FTE is now our most reliable team member."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#d97706">OS</div>
+            <div>
+              <div class="tcard-name">Omar Siddiqui</div>
+              <div class="tcard-role">Head of Growth — NovaSaaS</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"We saved 12 hours per account per week with the reporting agent. 40 personalised client
+            reports land in inboxes every Monday automatically. Client retention went up because the quality improved."
+          </p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#7c3aed">LF</div>
+            <div>
+              <div class="tcard-name">Lena Fischer</div>
+              <div class="tcard-role">MD — GrowthEdge Agency</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"5× more property viewings booked via the WhatsApp AI agent. Our team was skeptical
+            about AI — now they won't go back. Genuinely the best investment we've made in operations."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#be185d">AK</div>
+            <div>
+              <div class="tcard-name">Asad Khan</div>
+              <div class="tcard-role">CEO — PropView Real Estate</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- ══════════════════════════════
+      <!-- Row 2 (reverse) -->
+      <div class="testi-track">
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The integration with our CRM was seamless. Our AI agent now logs every customer
+            interaction, sends follow-up emails, and flags escalations — we literally haven't touched the queue in
+            weeks."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#0f766e">MH</div>
+            <div>
+              <div class="tcard-name">Maria Hassan</div>
+              <div class="tcard-role">Operations Lead — TechFlow SaaS</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Within 6 weeks of deploying the agentic pipeline, our outreach volume quadrupled while
+            our team size stayed the same. It's like hiring four extra SDRs without the overhead."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#92400e">RJ</div>
+            <div>
+              <div class="tcard-name">Rayan Javed</div>
+              <div class="tcard-role">Sales Director — FinEdge Capital</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"I was worried about AI sounding robotic with our luxury clients. The Digital FTE's
+            tone, vocabulary, and cadence is indistinguishable from our best human agents. Clients have no idea."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#1e40af">CB</div>
+            <div>
+              <div class="tcard-name">Charlotte Bell</div>
+              <div class="tcard-role">CX Director — Prestige Retail</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"We went from manually compiling 8-hour monthly reports to getting them automated in 12
+            minutes. The quality is actually better — no copy-paste errors, always on time, always formatted perfectly."
+          </p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#065f46">SN</div>
+            <div>
+              <div class="tcard-name">Saad Noor</div>
+              <div class="tcard-role">Analytics Manager — Atlas Corp</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The discovery workshop alone was worth it — they found 7 high-ROI automation
+            opportunities we'd never considered. We implemented 3 of them and the payback period was under 60 days."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#5b21b6">TK</div>
+            <div>
+              <div class="tcard-name">Tariq Khalid</div>
+              <div class="tcard-role">CEO — BuildRight Construction</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Zero lock-in contracts was the thing that sold me. They were so confident in their work
+            that they didn't need to trap us. 14 months later, we've expanded from one agent to six."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#9d174d">YF</div>
+            <div>
+              <div class="tcard-name">Yasmine Farsi</div>
+              <div class="tcard-role">COO — SwiftShip Logistics</div>
+            </div>
+          </div>
+        </div>
+        <!-- duplicates -->
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The integration with our CRM was seamless. Our AI agent now logs every customer
+            interaction, sends follow-up emails, and flags escalations — we literally haven't touched the queue in
+            weeks."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#0f766e">MH</div>
+            <div>
+              <div class="tcard-name">Maria Hassan</div>
+              <div class="tcard-role">Operations Lead — TechFlow SaaS</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Within 6 weeks of deploying the agentic pipeline, our outreach volume quadrupled while
+            our team size stayed the same. It's like hiring four extra SDRs without the overhead."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#92400e">RJ</div>
+            <div>
+              <div class="tcard-name">Rayan Javed</div>
+              <div class="tcard-role">Sales Director — FinEdge Capital</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"I was worried about AI sounding robotic with our luxury clients. The Digital FTE's
+            tone, vocabulary, and cadence is indistinguishable from our best human agents. Clients have no idea."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#1e40af">CB</div>
+            <div>
+              <div class="tcard-name">Charlotte Bell</div>
+              <div class="tcard-role">CX Director — Prestige Retail</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"We went from manually compiling 8-hour monthly reports to getting them automated in 12
+            minutes. The quality is actually better — no copy-paste errors, always on time, always formatted perfectly."
+          </p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#065f46">SN</div>
+            <div>
+              <div class="tcard-name">Saad Noor</div>
+              <div class="tcard-role">Analytics Manager — Atlas Corp</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"The discovery workshop alone was worth it — they found 7 high-ROI automation
+            opportunities we'd never considered. We implemented 3 of them and the payback period was under 60 days."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#5b21b6">TK</div>
+            <div>
+              <div class="tcard-name">Tariq Khalid</div>
+              <div class="tcard-role">CEO — BuildRight Construction</div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard">
+          <div class="tcard-stars">★★★★★</div>
+          <p class="tcard-text">"Zero lock-in contracts was the thing that sold me. They were so confident in their work
+            that they didn't need to trap us. 14 months later, we've expanded from one agent to six."</p>
+          <div class="tcard-author">
+            <div class="tcard-av" style="background:#9d174d">YF</div>
+            <div>
+              <div class="tcard-name">Yasmine Farsi</div>
+              <div class="tcard-role">COO — SwiftShip Logistics</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════
      CTA BANNER
 ══════════════════════════════ -->
-<section id="cta">
-  <div class="container">
-    <div class="cta-inner">
-      <div>
-        <div class="tag cta-tag">Ready to Automate?</div>
-        <h2>Put AI to <em>Work</em> For<br>Your Business Today</h2>
-        <p>We are a team of passionate AI engineers who take pride in delivering the highest standard of automation. Book a free 30-minute discovery call — no pitch deck, just a plan.</p>
-      </div>
-      <div class="cta-actions">
-        <a href="#contact" class="btn btn-green btn-arrow">Book Service Now</a>
-        <a href="tel:+923105139377" class="btn btn-white">📞 +92 310 5139377</a>
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <div class="tag cta-tag">Ready to Automate?</div>
+          <h2>Put AI to <em>Work</em> For<br>Your Business Today</h2>
+          <p>We are a team of passionate AI engineers who take pride in delivering the highest standard of automation.
+            Book a free 30-minute discovery call — no pitch deck, just a plan.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-green btn-arrow">Book Service Now</a>
+          <a href="tel:+923105139377" class="btn btn-white">📞 +92 310 5139377</a>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════
+  <!-- ══════════════════════════════
      CONTACT / BOOK
 ══════════════════════════════ -->
-<section id="contact" style="padding:7rem 0; background:var(--bg2);">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
-      <div class="reveal">
-        <div class="tag">Get In Touch</div>
-        <h2>Book Your Free<br><em>AI Audit</em> Today</h2>
-        <p class="section-desc">Tell us about your business. We'll identify your highest-ROI automation opportunity and give you a clear implementation plan — completely free, zero obligation.</p>
-        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
-          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;">
-            <span style="font-size:1.2rem;">📧</span>
-            <div>
-              <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:0.08em;">Email</div>
-              <!-- TODO: replace -->
-              <div style="font-size:0.88rem;font-weight:600;color:var(--ink);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a6cec3cacac9e6c7cfd5c9cad3d2cfc9c8d588c5c9cb">[email&#160;protected]</a></div>
+  <section id="contact" style="padding:7rem 0; background:var(--bg2);">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;">
+        <div class="reveal">
+          <div class="tag">Get In Touch</div>
+          <h2>Book Your Free<br><em>AI Audit</em> Today</h2>
+          <p class="section-desc">Tell us about your business. We'll identify your highest-ROI automation opportunity
+            and give you a clear implementation plan — completely free, zero obligation.</p>
+          <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
+            <div
+              style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;">
+              <span style="font-size:1.2rem;">📧</span>
+              <div>
+                <div
+                  style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:0.08em;">
+                  Email</div>
+                <!-- TODO: replace -->
+                <div style="font-size:0.88rem;font-weight:600;color:var(--ink);"><a href="/cdn-cgi/l/email-protection"
+                    class="__cf_email__"
+                    data-cfemail="a6cec3cacac9e6c7cfd5c9cad3d2cfc9c8d588c5c9cb">[email&#160;protected]</a></div>
+              </div>
             </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;">
-            <span style="font-size:1.2rem;">📞</span>
-            <div>
-              <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:0.08em;">Phone</div>
-              <!-- TODO: replace -->
-              <div style="font-size:0.88rem;font-weight:600;color:var(--ink);">+1 5000 6000</div>
+            <div
+              style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;">
+              <span style="font-size:1.2rem;">📞</span>
+              <div>
+                <div
+                  style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:0.08em;">
+                  Phone</div>
+                <!-- TODO: replace -->
+                <div style="font-size:0.88rem;font-weight:600;color:var(--ink);">+1 5000 6000</div>
+              </div>
             </div>
-          </div>
-          <div style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;">
-            <span style="font-size:1.2rem;">🕐</span>
-            <div>
-              <div style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:0.08em;">We're Open</div>
-              <div style="font-size:0.88rem;font-weight:600;color:var(--ink);">Monday – Saturday, 09:00 – 18:00</div>
+            <div
+              style="display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;background:var(--bg);border:1px solid var(--border);border-radius:12px;">
+              <span style="font-size:1.2rem;">🕐</span>
+              <div>
+                <div
+                  style="font-size:0.68rem;color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:0.08em;">
+                  We're Open</div>
+                <div style="font-size:0.88rem;font-weight:600;color:var(--ink);">Monday – Saturday, 09:00 – 18:00</div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="reveal">
-        <!-- Plan banner — shown when arriving from pricing -->
-        <div id="planBanner" style="display:none;background:var(--green-light);border:2px solid var(--green);border-radius:14px;padding:1rem 1.5rem;margin-bottom:1.5rem;display:none;align-items:center;gap:0.8rem;">
-          <span style="font-size:1.4rem;">🎯</span>
-          <div>
-            <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin-bottom:0.15rem;">Selected Plan</div>
-            <div id="planBannerText" style="font-size:0.92rem;font-weight:700;color:var(--ink);"></div>
+        <div class="reveal">
+          <!-- Plan banner — shown when arriving from pricing -->
+          <div id="planBanner"
+            style="display:none;background:var(--green-light);border:2px solid var(--green);border-radius:14px;padding:1rem 1.5rem;margin-bottom:1.5rem;display:none;align-items:center;gap:0.8rem;">
+            <span style="font-size:1.4rem;">🎯</span>
+            <div>
+              <div
+                style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--green);margin-bottom:0.15rem;">
+                Selected Plan</div>
+              <div id="planBannerText" style="font-size:0.92rem;font-weight:700;color:var(--ink);"></div>
+            </div>
+            <button onclick="clearPlan()"
+              style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--muted);font-size:1.1rem;padding:0.2rem;">✕</button>
           </div>
-          <button onclick="clearPlan()" style="margin-left:auto;background:none;border:none;cursor:pointer;color:var(--muted);font-size:1.1rem;padding:0.2rem;">✕</button>
-        </div>
-        <div style="background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2.5rem;">
-          <!-- GMAIL SETUP INSTRUCTIONS:
+          <div style="background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:2.5rem;">
+            <!-- GMAIL SETUP INSTRUCTIONS:
   1. Go to https://formspree.io and sign up free
   2. Click "New Form", name it "AI Solutions Contact"
   3. Copy the form ID (e.g. xpwzgkrb)
   4. Replace YOUR_FORM_ID below with your actual ID
   5. Formspree will email every submission directly to your Gmail! -->
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm" onsubmit="handleSubmit(event)">
-  <input type="hidden" name="_subject" value="🤖 New Client Inquiry — AI Solutions"/>
-  <input type="hidden" name="_template" value="table"/>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
-              <div style="display:flex;flex-direction:column;gap:0.4rem;">
-                <label style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">First Name</label>
-                <input type="text" name="first_name" placeholder="Sarah" style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'" required/>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm"
+              onsubmit="handleSubmit(event)">
+              <input type="hidden" name="_subject" value="🤖 New Client Inquiry — AI Solutions" />
+              <input type="hidden" name="_template" value="table" />
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                  <label
+                    style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">First
+                    Name</label>
+                  <input type="text" name="first_name" placeholder="Sarah"
+                    style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;"
+                    onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
+                    required />
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                  <label
+                    style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Last
+                    Name</label>
+                  <input type="text" name="last_name" placeholder="Johnson"
+                    style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;"
+                    onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
+                    required />
+                </div>
               </div>
-              <div style="display:flex;flex-direction:column;gap:0.4rem;">
-                <label style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Last Name</label>
-                <input type="text" name="last_name" placeholder="Johnson" style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'" required/>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
+                <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                  <label
+                    style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Email</label>
+                  <input type="email" name="email" placeholder="sarah@company.com"
+                    style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;"
+                    onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"
+                    required />
+                </div>
+                <div style="display:flex;flex-direction:column;gap:0.4rem;">
+                  <label
+                    style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Company</label>
+                  <input type="text" name="company" placeholder="Acme Corp"
+                    style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;"
+                    onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'" />
+                </div>
               </div>
-            </div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem;">
-              <div style="display:flex;flex-direction:column;gap:0.4rem;">
-                <label style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Email</label>
-                <input type="email" name="email" placeholder="sarah@company.com" style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'" required/>
+              <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
+                <label
+                  style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Service
+                  Needed</label>
+                <select name="service"
+                  style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;-webkit-appearance:none;">
+                   
+                   
+                    <option value="Agentic AI System">Agentic AI System</option>
+                    <option value="Intelligent Chatbot">Intelligent Chatbot</option>
+                    <option value="Digital FTE">Digital FTE</option>
+                    <option value="AI Reporting Agent">AI Reporting Agent</option>
+                    <option value="Systems Integration">Systems Integration</option>
+                    <option value="AI Strategy Consulting">AI Strategy Consulting</option>
+                    <option value="Multiple / Not Sure">Multiple / Not Sure</option>
+                   
+                </select>
               </div>
-              <div style="display:flex;flex-direction:column;gap:0.4rem;">
-                <label style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Company</label>
-                <input type="text" name="company" placeholder="Acme Corp" style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"/>
+              <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.5rem;">
+                <label
+                  style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Describe
+                  Your Challenge</label>
+                <textarea name="message"
+                  placeholder="e.g. Our support team handles 500+ tickets/week that are 80% repetitive..."
+                  style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;resize:vertical;min-height:110px;transition:border-color 0.15s;"
+                  onfocus="this.style.borderColor='var(--green)'"
+                  onblur="this.style.borderColor='var(--border)'"></textarea>
               </div>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1rem;">
-              <label style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Service Needed</label>
-              <select name="service" style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;-webkit-appearance:none;">
-                <option value="">Select a service or plan...</option>
-                <optgroup label="── Pricing Plans ──">
-                  <option value="Starter Plan — $2,500">⭐ Starter Plan — $2,500</option>
-                  <option value="Growth Plan — $7,500">🚀 Growth Plan — $7,500 (Most Popular)</option>
-                  <option value="Enterprise Plan — Custom">🏢 Enterprise Plan — Custom</option>
-                </optgroup>
-                <optgroup label="── By Service ──">
-                  <option value="Agentic AI System">Agentic AI System</option>
-                  <option value="Intelligent Chatbot">Intelligent Chatbot</option>
-                  <option value="Digital FTE">Digital FTE</option>
-                  <option value="AI Reporting Agent">AI Reporting Agent</option>
-                  <option value="Systems Integration">Systems Integration</option>
-                  <option value="AI Strategy Consulting">AI Strategy Consulting</option>
-                  <option value="Multiple / Not Sure">Multiple / Not Sure</option>
-                </optgroup>
-              </select>
-            </div>
-            <div style="display:flex;flex-direction:column;gap:0.4rem;margin-bottom:1.5rem;">
-              <label style="font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.07em;">Describe Your Challenge</label>
-              <textarea name="message" placeholder="e.g. Our support team handles 500+ tickets/week that are 80% repetitive..." style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:0.72rem 1rem;font-family:var(--sans);font-size:0.87rem;color:var(--ink);outline:none;resize:vertical;min-height:110px;transition:border-color 0.15s;" onfocus="this.style.borderColor='var(--green)'" onblur="this.style.borderColor='var(--border)'"></textarea>
-            </div>
-            <button type="submit" id="subBtn" style="width:100%;background:var(--green);color:#fff;border:none;padding:0.9rem;border-radius:100px;font-family:var(--sans);font-size:0.9rem;font-weight:700;cursor:pointer;transition:background 0.2s,transform 0.2s;" onmouseover="this.style.background='var(--green-dark)'" onmouseout="this.style.background='var(--green)'">Book Service Now →</button>
-          </form>
+              <button type="submit" id="subBtn"
+                style="width:100%;background:var(--green);color:#fff;border:none;padding:0.9rem;border-radius:100px;font-family:var(--sans);font-size:0.9rem;font-weight:700;cursor:pointer;transition:background 0.2s,transform 0.2s;"
+                onmouseover="this.style.background='var(--green-dark)'"
+                onmouseout="this.style.background='var(--green)'">Book Service Now →</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════════════════════════
+  <!-- ══════════════════════════════
      MEET THE FOUNDER
 ══════════════════════════════ -->
   <section class="founder-section-main">
-  <div class="founder-section">
- 
-  
- 
-    <div class="founder-card">
- 
-      <!-- Avatar -->
-      <div class="avatar-wrap">
-        <div class="avatar-ring">
-          <!-- Replace src with actual image; falls back to placeholder -->
-          <div class="avatar-placeholder">SIS</div>
-        </div>
-      </div>
- 
-      <!-- Bio -->
-      <div class="founder-content">
-         <span class="section-label">About</span>
-          <h2 class="section-title">Meet the Founder</h2>
-        <h3 class="founder-name">Shakeeb Iqbal Shamsi</h3>
- 
-        <div class="founder-bio">
-          <p>Shakeeb Iqbal Shamsi is an AI automation creator and educator. He graduated from the University of Iowa with a double major in Business Analytics and Marketing.</p>
-          <p>After working as a Business Intelligence Analyst at Goldman Sachs, he transitioned out of the corporate world in November 2024 to build his own AI automation agency and education brand.</p>
-          <p>Today, he teaches people how to master AI agents, build automations, and turn those skills into real income, while leading one of the largest AI automation communities in the world. He has helped hundreds of business owners scale their operations with AI.</p>
-        </div>
- 
-        <a href="#" class="cta-btn">
-          Learn More About AI-Solutions
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
- 
-    </div>
+    <div class="founder-section">
 
-  </div>
+
+
+      <div class="founder-card">
+
+        <!-- Avatar -->
+        <div class="avatar-wrap">
+          <div class="avatar-ring">
+            <!-- Replace src with actual image; falls back to placeholder -->
+            <div class="avatar-placeholder">SIS</div>
+          </div>
+        </div>
+
+        <!-- Bio -->
+        <div class="founder-content">
+          <span class="section-label">About</span>
+          <h2 class="section-title">Meet the Founder</h2>
+          <h3 class="founder-name">Shakeeb Iqbal Shamsi</h3>
+
+          <div class="founder-bio">
+            <p>Shakeeb Iqbal Shamsi is an AI automation creator and educator. He graduated from the University of Iowa
+              with a double major in Business Analytics and Marketing.</p>
+            <p>After working as a Business Intelligence Analyst at Goldman Sachs, he transitioned out of the corporate
+              world in November 2024 to build his own AI automation agency and education brand.</p>
+            <p>Today, he teaches people how to master AI agents, build automations, and turn those skills into real
+              income, while leading one of the largest AI automation communities in the world. He has helped hundreds of
+              business owners scale their operations with AI.</p>
+          </div>
+
+          <a href="#" class="cta-btn">
+            Learn More About AI-Solutions
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 8H13M13 8L8.5 3.5M13 8L8.5 12.5" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
   </section>
 
-<!-- ══════════════════════════════
+  <!-- ══════════════════════════════
      FOOTER
 ══════════════════════════════ -->
-<footer>
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <a href="#" class="footer-logo">AI <span>Solutions</span></a>
-      <p>We are a team of passionate AI engineers who take pride in delivering the highest standard of automation. With years of experience, we've perfected our methods.</p>
-      <div class="footer-socials">
-        <a href="https://linkedin.com/company/ai-solutions" target="_blank">in</a>
-        <a href="https://x.com/aisolutions" target="_blank">𝕏</a>
-        <a href="https://instagram.com/aisolutions" target="_blank">ig</a>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">AI <span>Solutions</span></a>
+        <p>We are a team of passionate AI engineers who take pride in delivering the highest standard of automation.
+          With years of experience, we've perfected our methods.</p>
+        <div class="footer-socials">
+          <a href="https://linkedin.com/company/ai-solutions" target="_blank">in</a>
+          <a href="https://x.com/aisolutions" target="_blank">𝕏</a>
+          <a href="https://instagram.com/aisolutions" target="_blank">ig</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#services">Our Services</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="#testimonials">Clients</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Our Services</h4>
+        <ul>
+          <li><a href="services/agentic-ai.html">Agentic AI Systems</a></li>
+          <li><a href="services/chatbots.html">Intelligent Chatbots</a></li>
+          <li><a href="services/digital-ftes.html">Digital FTEs</a></li>
+          <li><a href="services/reporting-agents.html">AI Reporting Agents</a></li>
+          <li><a href="services/systems-integration.html">Systems Integration</a></li>
+          <li><a href="services/ai-consulting.html">AI Strategy Consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <!-- TODO: replace with real info -->
+        <div class="footer-contact-item"><span>🕐</span> Monday – Saturday 09.00 – 18.00</div>
+        <div class="footer-contact-item"><span>📍</span> Rawalpindi, Punjab, Pakistan</div>
+        <div class="footer-contact-item"><span>✉️</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+            data-cfemail="85ede0e9e9eac5e4ecf6eae9f0f1eceaebf6abe6eae8">[email&#160;protected]</a></div>
       </div>
     </div>
 
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#services">Our Services</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="#testimonials">Clients</a></li>
-        <li><a href="#contact">Contact</a></li>
+    <div class="footer-bottom">
+      <div class="footer-copy">Copyright 2026 — AI Solutions</div>
+      <ul class="footer-links">
+        <li><a href="#">Terms &amp; Conditions</a></li>
+        <li><a href="#">Privacy Policy</a></li>
       </ul>
     </div>
+  </footer>
 
-    <div class="footer-col">
-      <h4>Our Services</h4>
-      <ul>
-        <li><a href="services/agentic-ai.html">Agentic AI Systems</a></li>
-        <li><a href="services/chatbots.html">Intelligent Chatbots</a></li>
-        <li><a href="services/digital-ftes.html">Digital FTEs</a></li>
-        <li><a href="services/reporting-agents.html">AI Reporting Agents</a></li>
-        <li><a href="services/systems-integration.html">Systems Integration</a></li>
-        <li><a href="services/ai-consulting.html">AI Strategy Consulting</a></li>
-      </ul>
-    </div>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script>
 
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <!-- TODO: replace with real info -->
-      <div class="footer-contact-item"><span>🕐</span> Monday – Saturday 09.00 – 18.00</div>
-      <div class="footer-contact-item"><span>📍</span> Rawalpindi, Punjab, Pakistan</div>
-      <div class="footer-contact-item"><span>✉️</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="85ede0e9e9eac5e4ecf6eae9f0f1eceaebf6abe6eae8">[email&#160;protected]</a></div>
-    </div>
-  </div>
 
-  <div class="footer-bottom">
-    <div class="footer-copy">Copyright 2026 — AI Solutions</div>
-    <ul class="footer-links">
-      <li><a href="#">Terms &amp; Conditions</a></li>
-      <li><a href="#">Privacy Policy</a></li>
-    </ul>
-  </div>
-</footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('in'), i * 80);
-        io.unobserve(e.target);
-      }
+
+
+
+
+
+    //***********************************testing
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    /* ── HAMBURGER ── */
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('navDrawer');
+    hamburger.addEventListener('click', () => {
+      const open = drawer.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
     });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const h = a.getAttribute('href');
-      if (h === '#' || !h) return;
-      const t = document.querySelector(h);
-      if (t) { e.preventDefault(); window.scrollTo({ top: t.offsetTop - 72, behavior: 'smooth' }); }
-    });
-  });
-
-  // Form submit — sends to Formspree → your Gmail
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const form = document.getElementById('contactForm');
-    const btn  = document.getElementById('subBtn');
-    const action = form.getAttribute('action');
-    const data = new FormData(form);
-
-    // ── OPTION A: Formspree not set up yet → use mailto fallback ──
-    if (action.includes('YOUR_FORM_ID')) {
-      const first   = form.querySelector('[name=first_name]').value;
-      const last    = form.querySelector('[name=last_name]').value;
-      const email   = form.querySelector('[name=email]').value;
-      const company = form.querySelector('[name=company]').value || 'Not provided';
-      const service = form.querySelector('[name=service]').value;
-      const message = form.querySelector('[name=message]').value || 'Not provided';
-
-      const subject = encodeURIComponent('🤖 New Client Inquiry — AI Solutions');
-      const body = encodeURIComponent(
-        'NEW CONTACT FORM SUBMISSION\n' +
-        '================================\n' +
-        'Name:     ' + first + ' ' + last + '\n' +
-        'Email:    ' + email + '\n' +
-        'Company:  ' + company + '\n' +
-        'Service:  ' + service + '\n' +
-        '--------------------------------\n' +
-        'Challenge:\n' + message + '\n' +
-        '================================'
-      );
-
-      // Open Gmail compose with all details pre-filled
-      window.open(
-        'https://mail.google.com/mail/?view=cm&fs=1' +
-        '&to=shakeebiqbals@gmail.com' +
-        '&su=' + subject +
-        '&body=' + body,
-        '_blank'
-      );
-      showSuccess(btn, form);
-      return;
-    }
-
-    // ── OPTION B: Formspree ID is set → send properly ──
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    btn.style.opacity = '0.75';
-
-    try {
-      const res = await fetch(action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+    drawer.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        drawer.classList.remove('open');
+        hamburger.classList.remove('open');
       });
+    });
 
-      if (res.ok) {
-        showSuccess(btn, form);
-      } else {
-        const json = await res.json().catch(() => ({}));
-        const msg = (json.errors || []).map(x => x.message).join(', ') || 'Submission failed';
-        setBtnError(btn, msg);
-      }
-    } catch (err) {
-      // Network error fallback — open Gmail compose
-      const first   = form.querySelector('[name=first_name]').value;
-      const last    = form.querySelector('[name=last_name]').value;
-      const email   = form.querySelector('[name=email]').value;
-      const company = form.querySelector('[name=company]').value || 'Not provided';
-      const service = form.querySelector('[name=service]').value;
-      const message = form.querySelector('[name=message]').value || 'Not provided';
+    /* ── ACTIVE SECTION HIGHLIGHT ── */
+    const allNavLinks = document.querySelectorAll('.nav-link[data-section]');
 
-      const subject = encodeURIComponent('🤖 New Client Inquiry — AI Solutions');
-      const body = encodeURIComponent(
-        'NEW CONTACT FORM SUBMISSION\n' +
-        '================================\n' +
-        'Name:     ' + first + ' ' + last + '\n' +
-        'Email:    ' + email + '\n' +
-        'Company:  ' + company + '\n' +
-        'Service:  ' + service + '\n' +
-        '--------------------------------\n' +
-        'Challenge:\n' + message + '\n' +
-        '================================'
-      );
-
-      window.open(
-        'https://mail.google.com/mail/?view=cm&fs=1' +
-        '&to=shakeebiqbals@gmail.com' +
-        '&su=' + subject +
-        '&body=' + body,
-        '_blank'
-      );
-      showSuccess(btn, form);
+    function setActive(id) {
+      allNavLinks.forEach(link => {
+        link.classList.toggle('active', link.dataset.section === id);
+      });
     }
-  }
 
-  function showSuccess(btn, form) {
-    btn.textContent = '✓ Received! We\'ll be in touch within 24 hours';
-    btn.style.background = '#059669';
-    btn.style.opacity = '1';
-    btn.disabled = true;
-    form.reset();
-    setTimeout(() => {
-      btn.textContent = 'Book Service Now →';
-      btn.style.background = 'var(--green)';
-      btn.disabled = false;
-    }, 5000);
-  }
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    }, {
+      rootMargin: '-10% 0px -50% 0px',  // Fixed: less aggressive top margin
+      threshold: 0
+    });
 
-  // Called when "Book Now" is clicked on a pricing card
-  function selectPlan(plan) {
-    const planMap = {
-      'Starter':    'Starter Plan — $2,500',
-      'Growth':     'Growth Plan — $7,500 (Most Popular)',
-      'Enterprise': 'Enterprise Plan — Custom'
-    };
-    const val = planMap[plan] || plan;
+    document.querySelectorAll('section[id]').forEach(sec => sectionObserver.observe(sec));
 
-    // Wait for scroll animation to finish
-    setTimeout(() => {
-      // 1. Set dropdown
-      const sel = document.querySelector('select[name="service"]');
-      if (sel) {
-        for (let i = 0; i < sel.options.length; i++) {
-          if (sel.options[i].value === val) {
-            sel.selectedIndex = i;
-            sel.style.borderColor = 'var(--green)';
-            sel.style.boxShadow = '0 0 0 3px rgba(46,184,126,0.2)';
-            setTimeout(() => { sel.style.borderColor=''; sel.style.boxShadow=''; }, 2500);
-            break;
+    /* ── SMOOTH SCROLL ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const h = a.getAttribute('href');
+        if (!h || h === '#') return;
+        const t = document.querySelector(h);
+        if (t) {
+          e.preventDefault();
+          window.scrollTo({ top: t.offsetTop - 72, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ── SCROLL REVEAL ── */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('in'), i * 80);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    //***********************************testing
+
+    // Form submit — sends to Formspree → your Gmail
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contactForm');
+      const btn = document.getElementById('subBtn');
+      const action = form.getAttribute('action');
+      const data = new FormData(form);
+
+      // ── OPTION A: Formspree not set up yet → use mailto fallback ──
+      if (action.includes('YOUR_FORM_ID')) {
+        const first = form.querySelector('[name=first_name]').value;
+        const last = form.querySelector('[name=last_name]').value;
+        const email = form.querySelector('[name=email]').value;
+        const company = form.querySelector('[name=company]').value || 'Not provided';
+        const service = form.querySelector('[name=service]').value;
+        const message = form.querySelector('[name=message]').value || 'Not provided';
+
+        const subject = encodeURIComponent('🤖 New Client Inquiry — AI Solutions');
+        const body = encodeURIComponent(
+          'NEW CONTACT FORM SUBMISSION\n' +
+          '================================\n' +
+          'Name:     ' + first + ' ' + last + '\n' +
+          'Email:    ' + email + '\n' +
+          'Company:  ' + company + '\n' +
+          'Service:  ' + service + '\n' +
+          '--------------------------------\n' +
+          'Challenge:\n' + message + '\n' +
+          '================================'
+        );
+
+        // Open Gmail compose with all details pre-filled
+        window.open(
+          'https://mail.google.com/mail/?view=cm&fs=1' +
+          '&to=shakeebiqbals@gmail.com' +
+          '&su=' + subject +
+          '&body=' + body,
+          '_blank'
+        );
+        showSuccess(btn, form);
+        return;
+      }
+
+      // ── OPTION B: Formspree ID is set → send properly ──
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      btn.style.opacity = '0.75';
+
+      try {
+        const res = await fetch(action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          showSuccess(btn, form);
+        } else {
+          const json = await res.json().catch(() => ({}));
+          const msg = (json.errors || []).map(x => x.message).join(', ') || 'Submission failed';
+          setBtnError(btn, msg);
+        }
+      } catch (err) {
+        // Network error fallback — open Gmail compose
+        const first = form.querySelector('[name=first_name]').value;
+        const last = form.querySelector('[name=last_name]').value;
+        const email = form.querySelector('[name=email]').value;
+        const company = form.querySelector('[name=company]').value || 'Not provided';
+        const service = form.querySelector('[name=service]').value;
+        const message = form.querySelector('[name=message]').value || 'Not provided';
+
+        const subject = encodeURIComponent('🤖 New Client Inquiry — AI Solutions');
+        const body = encodeURIComponent(
+          'NEW CONTACT FORM SUBMISSION\n' +
+          '================================\n' +
+          'Name:     ' + first + ' ' + last + '\n' +
+          'Email:    ' + email + '\n' +
+          'Company:  ' + company + '\n' +
+          'Service:  ' + service + '\n' +
+          '--------------------------------\n' +
+          'Challenge:\n' + message + '\n' +
+          '================================'
+        );
+
+        window.open(
+          'https://mail.google.com/mail/?view=cm&fs=1' +
+          '&to=shakeebiqbals@gmail.com' +
+          '&su=' + subject +
+          '&body=' + body,
+          '_blank'
+        );
+        showSuccess(btn, form);
+      }
+    }
+
+    function showSuccess(btn, form) {
+      btn.textContent = '✓ Received! We\'ll be in touch within 24 hours';
+      btn.style.background = '#059669';
+      btn.style.opacity = '1';
+      btn.disabled = true;
+      form.reset();
+      setTimeout(() => {
+        btn.textContent = 'Book Service Now →';
+        btn.style.background = 'var(--green)';
+        btn.disabled = false;
+      }, 5000);
+    }
+
+    // Called when "Book Now" is clicked on a pricing card
+    function selectPlan(plan) {
+      const planMap = {
+        'Starter': 'Starter Plan — $2,500',
+        'Growth': 'Growth Plan — $7,500 (Most Popular)',
+        'Enterprise': 'Enterprise Plan — Custom'
+      };
+      const val = planMap[plan] || plan;
+
+      // Wait for scroll animation to finish
+      setTimeout(() => {
+        // 1. Set dropdown
+        const sel = document.querySelector('select[name="service"]');
+        if (sel) {
+          for (let i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].value === val) {
+              sel.selectedIndex = i;
+              sel.style.borderColor = 'var(--green)';
+              sel.style.boxShadow = '0 0 0 3px rgba(46,184,126,0.2)';
+              setTimeout(() => { sel.style.borderColor = ''; sel.style.boxShadow = ''; }, 2500);
+              break;
+            }
           }
         }
-      }
-      // 2. Show plan banner
+        // 2. Show plan banner
+        const banner = document.getElementById('planBanner');
+        const bannerText = document.getElementById('planBannerText');
+        if (banner && bannerText) {
+          bannerText.textContent = val;
+          banner.style.display = 'flex';
+        }
+        // 3. Focus first name input
+        const fname = document.querySelector('input[name="first_name"]');
+        if (fname) fname.focus();
+      }, 700);
+    }
+
+    function clearPlan() {
       const banner = document.getElementById('planBanner');
-      const bannerText = document.getElementById('planBannerText');
-      if (banner && bannerText) {
-        bannerText.textContent = val;
-        banner.style.display = 'flex';
-      }
-      // 3. Focus first name input
-      const fname = document.querySelector('input[name="first_name"]');
-      if (fname) fname.focus();
-    }, 700);
-  }
+      if (banner) banner.style.display = 'none';
+      const sel = document.querySelector('select[name="service"]');
+      if (sel) sel.selectedIndex = 0;
+    }
 
-  function clearPlan() {
-    const banner = document.getElementById('planBanner');
-    if (banner) banner.style.display = 'none';
-    const sel = document.querySelector('select[name="service"]');
-    if (sel) sel.selectedIndex = 0;
-  }
+    function setBtnError(btn, msg) {
+      btn.textContent = '⚠ ' + msg + ' — please try again';
+      btn.style.background = '#ef4444';
+      btn.style.opacity = '1';
+      btn.disabled = false;
+      setTimeout(() => {
+        btn.textContent = 'Book Service Now →';
+        btn.style.background = 'var(--green)';
+      }, 5000);
+    }
+  </script>
 
-  function setBtnError(btn, msg) {
-    btn.textContent = '⚠ ' + msg + ' — please try again';
-    btn.style.background = '#ef4444';
-    btn.style.opacity = '1';
-    btn.disabled = false;
-    setTimeout(() => {
-      btn.textContent = 'Book Service Now →';
-      btn.style.background = 'var(--green)';
-    }, 5000);
-  }
-</script>
 </body>
+
 </html>
