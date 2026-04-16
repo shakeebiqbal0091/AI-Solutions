@@ -79,8 +79,8 @@
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green);
+      /* text-transform: uppercase; */
+      color: #d323b7;
       background: var(--green-light);
       border-radius: 100px;
       padding: 0.3rem 0.9rem;
@@ -92,7 +92,7 @@
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--green);
+      background: #d323b7;
     }
 
     h2 {
@@ -107,7 +107,7 @@
 
     h2 em {
       font-style: italic;
-      color: var(--green);
+      color: #d323b7;
     }
 
     .section-desc {
@@ -134,25 +134,25 @@
     }
 
     .btn-green {
-      background: var(--green);
+      background: #d323b7;
       color: #fff;
     }
 
     .btn-green:hover {
-      background: var(--green-dark);
+      background: #d323b7;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(46, 184, 126, 0.3);
+      box-shadow: #d323b7;
     }
 
     .btn-outline {
-      background: transparent;
+      background: white;
       color: var(--ink);
       border: 2px solid var(--border);
     }
 
     .btn-outline:hover {
-      border-color: var(--green);
-      color: var(--green);
+      border-color: #d323b7;
+      color: #d323b7;
     }
 
     .btn-white {
@@ -161,7 +161,7 @@
     }
 
     .btn-white:hover {
-      background: var(--green);
+      background: #d323b7;
       color: #fff;
     }
 
@@ -178,9 +178,9 @@
       left: 0;
       right: 0;
       z-index: 300;
-      background: rgba(255, 255, 255, 0.97);
+      background: transparent;
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      /* border-bottom: 1px solid var(--border); */
       height: 70px;
       transition: box-shadow 0.3s;
     }
@@ -209,7 +209,7 @@
     }
 
     .nav-logo span {
-      color: var(--green);
+      color: #d323b7;
     }
 
     .nav-links {
@@ -236,7 +236,7 @@
 
     /* Active state — green underline pill */
     .nav-links a.active {
-      color: var(--green);
+      color: #d323b7;
       font-weight: 600;
       background: var(--green-light);
     }
@@ -249,7 +249,7 @@
       transform: translateX(-50%);
       width: 18px;
       height: 2px;
-      background: var(--green);
+      background: #d323b7;
       border-radius: 2px;
     }
 
@@ -351,15 +351,37 @@
     /* ════════════════════════════════
        HERO
     ════════════════════════════════ */
-    #hero {
-      padding-top: 70px;
-      min-height: 100vh;
+#hero {
+  position: relative;
+  padding-top: 70px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  /* color: white; */
+}
 
-      overflow: hidden;
-    }
+/* Background Video */
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+ 
+
+/* Content container */
+.hero-left {
+  max-width: 650px;
+  padding: 40px;
+}
 
     .hero-left {
-      background: var(--bg2);
+      /* background: var(--bg2); */
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -375,7 +397,7 @@
       left: -80px;
       width: 320px;
       height: 320px;
-      background: var(--green-light);
+      /* background: var(--green-light); */
       border-radius: 50%;
       z-index: 0;
     }
@@ -394,7 +416,7 @@
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--green);
+      color: #d323b7;
       margin-bottom: 1.4rem;
     }
 
@@ -415,12 +437,13 @@
 
     .hero-left h1 em {
       font-style: italic;
-      color: var(--green);
+      color: #d323b7;
     }
 
     .hero-sub {
       font-size: 1rem;
-      color: var(--muted);
+      padding-left: 50px;
+      color: #4a5568;
       margin-bottom: 2.5rem;
       max-width: 400px;
       line-height: 1.75;
@@ -428,20 +451,21 @@
 
     .hero-actions {
       display: flex;
+      padding-left: 50px;
       gap: 1rem;
       flex-wrap: wrap;
       margin-bottom: 3.5rem;
     }
 
-    .hero-proof {
+    /* .hero-proof {
       display: flex;
+      padding-left: 50px;
       gap: 2rem;
       flex-wrap: wrap;
       padding-top: 2.5rem;
       border-top: 1px solid var(--border);
-    }
-
-    .hp-item {}
+    } */
+ 
 
     .hp-num {
       font-family: var(--serif);
@@ -601,18 +625,18 @@ founder css
       font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #2eb87e;
+      color: #d323b7;
       margin-bottom: 14px;
       display: block;
     }
 
     .section-title {
-      font-family: 'Sora', sans-serif;
+      font-family: 'DM Serif Display', Georgia, serif;
       font-size: clamp(2rem, 5vw, 2.9rem);
       font-weight: 800;
       color: #0f1117;
-      letter-spacing: -0.02em;
-      margin-bottom: 56px;
+      letter-spacing: 0.05em;
+      margin-bottom: 30px;
       line-height: 1.15;
       text-align: left;
 
@@ -637,7 +661,7 @@ founder css
       height: 178px;
       border-radius: 50%;
       padding: 4px;
-      background: linear-gradient(135deg, #2eb87e 0%, #1a9060 100%);
+      background: linear-gradient(135deg, #d323b7 0%, #ed4dd2 100%);
       box-shadow: 0 8px 32px rgba(46, 184, 126, 0.28);
     }
 
@@ -709,7 +733,7 @@ founder css
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #2eb87e;
+      background: #d323b7;
       color: #fff;
       font-family: 'Sora', sans-serif;
       font-size: 0.92rem;
@@ -725,9 +749,9 @@ founder css
     }
 
     .cta-btn:hover {
-      background: #27a36f;
+      background: #d323b7;
       transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(46, 184, 126, 0.42);
+      box-shadow: #d323b7;
     }
 
     .cta-btn:active {
@@ -1073,7 +1097,7 @@ founder css
       gap: 0.3rem;
       font-size: 0.8rem;
       font-weight: 700;
-      color: var(--green);
+      color: #d323b7;
       transition: gap 0.15s;
     }
 
@@ -1151,7 +1175,7 @@ founder css
       top: -13px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--green);
+      background: #d323b7;
       color: #fff;
       font-size: 0.7rem;
       font-weight: 700;
@@ -1400,7 +1424,7 @@ founder css
     }
 
     .cta-inner h2 em {
-      color: var(--green);
+      color: #d323b7;
     }
 
     .cta-inner p {
@@ -1446,7 +1470,7 @@ founder css
     }
 
     .footer-logo span {
-      color: var(--green);
+      color: #d323b7;
     }
 
     .footer-brand p {
@@ -1653,7 +1677,7 @@ founder css
       <a href="#hero">Home</a>
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
-      <a href="#testimonials">Clients</a>
+      <a href="#case_studies">Case Studies</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="btn btn-green drawer-cta">Book a Free Audit →</a>
       <a href="about.html">About</a>
@@ -1665,7 +1689,7 @@ founder css
         <li><a href="#hero" class="nav-link" data-section="hero">Home</a></li>
         <li><a href="index.html#services" class="nav-link" data-section="services">Services</a></li>
         <li><a href="index.html#pricing" class="nav-link" data-section="pricing">Pricing</a></li>
-        <li><a href="index.html#testimonials" class="nav-link" data-section="testimonials">Clients</a></li>
+        <li><a href="index.html#case_studies" class="nav-link" data-section="case_studies">Case Studies</a></li>
         <li><a href="index.html#contact" class="nav-link" data-section="contact">Contact</a></li>
         <li><a href="about.html" class="nav-link" data-page="about">About</a></li>
       </ul>
@@ -1680,33 +1704,49 @@ founder css
   <!-- ══════════════════════════════
      HERO
 ══════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-left">
-      <span class="hero-cert">Officially Certified AI Agency</span>
-      <h1>Automate Everything.<br><em>Scale Without</em><br>Limits.</h1>
-      <p class="hero-sub">Fast, Reliable, and Affordable AI Automation Agentic AI, Intelligent Chatbots, and Digital
-        FTEs built for your business.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-green btn-arrow">Book a Free Audit</a>
-        <a href="#services" class="btn btn-outline">Explore Services</a>
-      </div>
-      <div class="hero-proof">
-        <div class="hp-item">
-          <div class="hp-num">30<span>+</span></div>
-          <div class="hp-label">Businesses Automated</div>
-        </div>
-        <div class="hp-item">
-          <div class="hp-num">70<span>%</span></div>
-          <div class="hp-label">Cost Reduction</div>
-        </div>
-        <div class="hp-item">
-          <div class="hp-num">24<span>/7</span></div>
-          <div class="hp-label">AI Always Working</div>
-        </div>
-      </div>
+<section id="hero">
+  
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+
+  <!-- Overlay (optional but recommended) -->
+  <div class="hero-overlay"></div>
+
+  <!-- Your Existing Content -->
+  <div class="hero-left">
+    <span class="hero-cert">Officially Certified AI Agency</span>
+    <h1>Automate Everything.<br><em>Scale Without</em><br>Limits.</h1>
+    <p class="hero-sub">
+      Fast, Reliable, and Affordable AI Automation, Agentic AI, Intelligent Chatbots, 
+      and Digital FTEs built for your business.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-green btn-arrow">Book a Free Audit</a>
+      <a href="#services" class="btn btn-outline">Explore Services</a>
     </div>
 
-  </section>
+    <!-- <div class="hero-proof">
+      <div class="hp-item">
+        <div class="hp-num">30<span>+</span></div>
+        <div class="hp-label">Businesses Automated</div>
+      </div>
+
+      <div class="hp-item">
+        <div class="hp-num">70<span>%</span></div>
+        <div class="hp-label">Cost Reduction</div>
+      </div>
+
+      <div class="hp-item">
+        <div class="hp-num">24<span>/7</span></div>
+        <div class="hp-label">AI Always Working</div>
+      </div>
+    </div>
+  </div> -->
+
+</section>
 
   <!-- ══════════════════════════════
      INFO STRIP
@@ -1991,19 +2031,19 @@ founder css
      TESTIMONIALS
 ══════════════════════════════ -->
 <!-- Case Studies Section -->
-<section id="testimonials" style="padding: 80px 20px; text-align: center; background: var(--bg-secondary, #f8fafc);">
+<section id="case_studies" style="padding: 80px 20px; text-align: center; background: var(--bg-secondary, #f8fafc);">
   <div style="max-width: 900px; margin: 0 auto;">
     
     <!-- Section Label -->
-    <p style="color: #2eb87e; font-size: 14px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;">
+    <p style="color: #d323b7; font-size: 14px; font-weight: 600; letter-spacing: 2px; margin-bottom: 12px;">
       Real Work. Real Results.
     </p>
 
     <!-- Heading -->
     <h2 style="font-size: 2.5rem; font-weight: 700; color: #111518; margin-bottom: 16px;">
-      Case Studies <span style="color: #2eb87e;">IN PROGRESS</span>
+      Case Studies <span style="color: #d323b7;">IN PROGRESS</span>
       <a href="case-study-novamart.html" 
-   style="color: #2eb87e; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
+   style="color: #d323b7; font-size: 0.8rem; font-weight: 600; text-decoration: none;">
   ● VIEW CASE STUDY →
 </a>
     </h2>
@@ -2029,7 +2069,7 @@ founder css
           Automating a full lead qualification and follow-up pipeline for a service business.
         </p>
         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #cdcdcd;">
-          <span style="color: #2eb87e; font-size: 0.8rem; font-weight: 600;">● IN PROGRESS</span>
+          <span style="color: #d323b7; font-size: 0.8rem; font-weight: 600;">● IN PROGRESS</span>
         </div>
       </div>
 
@@ -2045,7 +2085,7 @@ founder css
           Building a WhatsApp AI agent for a retail business to handle orders and FAQs 24/7.
         </p>
         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #cdcdcd;">
-          <span style="color: #2eb87e; font-size: 0.8rem; font-weight: 600;">● IN PROGRESS</span>
+          <span style="color: #d323b7; font-size: 0.8rem; font-weight: 600;">● IN PROGRESS</span>
         </div>
       </div>
 
@@ -2061,7 +2101,7 @@ founder css
           Deploying a Digital FTE to own the full customer support function for a SaaS startup.
         </p>
         <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #cdcdcd;">
-          <span style="color: #2eb87e; font-size: 0.8rem; font-weight: 600;">● IN PROGRESS</span>
+          <span style="color: #d323b7; font-size: 0.8rem; font-weight: 600;">● IN PROGRESS</span>
         </div>
       </div>
 
@@ -2079,7 +2119,7 @@ founder css
         We're onboarding a small number of founding clients at a special rate. 
         Your results will be documented and showcased as a full case study.
       </p>
-      <a href="#contact" style="background: #2eb87e; color: #ffffff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">
+      <a href="#contact" style="background: #d323b7; color: #ffffff; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">
         Apply as a Founding Client →
       </a>
     </div>
@@ -2313,7 +2353,7 @@ founder css
           With years of experience, we've perfected our methods.</p>
         <div class="footer-socials">
           <a href="https://www.linkedin.com/in/shakeeb-iqbal-shamsi-5b579b257/" target="_blank" rel="noopener noreferrer">in</a>
-          <a href="https://x.com/aisolutions" target="_blank">𝕏</a>
+          <a href="https://www.facebook.com/profile.php?id=61552992761811" target="_blank">F</a>
           <a href="https://instagram.com/aisolutions" target="_blank">ig</a>
         </div>
       </div>
